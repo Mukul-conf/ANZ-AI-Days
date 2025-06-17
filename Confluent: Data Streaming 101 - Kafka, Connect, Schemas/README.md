@@ -194,7 +194,7 @@ The next step is to source data from mongoDB using the [fully-managed mongoDB At
 
 1. This should return you to the main Connectors landing page. Wait for your newly created connector to change status from **Provisioning** to **Running**.
 
-1. If you navigate back to the **Topics** tab you will notice two newly created topics **abc.transactions** and **abc.clicks**.  The connector automatically created these two additional topics based on the collections in the mongoDB Atlas database where data is being sourced from.
+1. If you navigate back to the **Topics** tab you will notice three newly created topics **abc.transactions**, **abc.orders** and **abc.clicks**.  The connector automatically created these two additional topics based on the collections in the mongoDB Atlas database where data is being sourced from.
 
 ***
 
