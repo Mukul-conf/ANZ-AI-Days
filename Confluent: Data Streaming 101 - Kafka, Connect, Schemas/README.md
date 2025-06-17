@@ -155,7 +155,7 @@ An environment contains Confluent clusters and its deployed components such as C
 
 1. If this is your first API key within your cluster, click **Create key**. If you have set up API keys in your cluster in the past and already have an existing API key, click **+ Add key**.
 
-1. Select **Global Access**, then click Next.
+1. Select **My Account**, then click Next.
 
 1. Save your API key and secret - you will need these during the workshop.
 
