@@ -9,15 +9,14 @@
 ## **Agenda**
 1. [Log Into Confluent Cloud](#step-1)
 1. [Create an Environment and Cluster](#step-2)
-1. [Setup ksqlDB](#step-3)
+1. [Create Flink Compute Pool](#step-3)
 1. [Create a Topic using the Cloud UI](#step-4)
 1. [Create an API Key Pair](#step-5)
 1. [Connect mongoDB Atlas source to Confluent Cloud](#step-6)
 1. [Cloud Dashboard Walkthrough](#step-7)
-1. [Create Streams and Tables using ksqlDB](#step-8)
-1. [Stream Processing with ksqlDB](#step-9)
-1. [Connect BigQuery sink to Confluent Cloud](#step-10)
-1. [Clean Up Resources](#step-11)
+1. [Stream Processing with Flink](#step-8)
+1. [Connect Redshift sink to Confluent Cloud](#step-9)
+1. [Clean Up Resources](#step-10)
 1. [Confluent Resources and Further Testing](#confluent-resources-and-further-testing)
 
 ***
@@ -28,7 +27,7 @@
     <img src="images/architecture.png" width=75% height=75%>
 </div>
 
-This workshop will be utilizing mongoDB Atlas, BigQuery, and Data Studio instances that are being managed by Confluent. You will not be able to access these instances outside of the workshop time.  To test ksqlDB and connectors outside of the workshop you can take a look at the ksqlDB [quickstart](https://docs.confluent.io/cloud/current/get-started/ksql.html) and fully-managed connectors [page](https://docs.confluent.io/cloud/current/connectors/index.html#kafka-connect-cloud).
+This workshop will be utilizing mongoDB Atlas, Redshift,flink instances that are being managed by Confluent. You will not be able to access these instances outside of the workshop time.  To test Flink and connectors outside of the workshop you can take a look at the flink [quickstart]([https://docs.confluent.io/cloud/current/get-started/ksql.html](https://docs.confluent.io/cloud/current/flink/get-started/quick-start-cloud-console.html)) and fully-managed connectors [page](https://docs.confluent.io/cloud/current/connectors/index.html#kafka-connect-cloud).
 ***
 
 ## **Prerequisites**
@@ -47,7 +46,7 @@ This workshop will be utilizing mongoDB Atlas, BigQuery, and Data Studio instanc
 
 ## **Objective**
 
-In this workshop you will learn how Confluent Cloud can enable you to quickly and easily stand up a streaming ETL pipeline. During this workshop you’ll get hands-on experience with building out an end-to-end ETL pipeline; from extracting & loading data from out-of-the-box source & target systems with connectors to transforming the data in real-time with ksqlDB all in Confluent Cloud. The use case will be centered around creating dynamic product promotions based on real-time purchases, inventory levels, and clickstream data applying a number of transformations like filter, aggregate or join on your data streams, and then easily loading it in the destination application, all without having to type a single line of code.
+In this workshop you will learn how Confluent Cloud can enable you to quickly and easily stand up a streaming ETL pipeline. During this workshop you’ll get hands-on experience with building out an end-to-end ETL pipeline; from extracting & loading data from out-of-the-box source & target systems with connectors to transforming the data in real-time with flink all in Confluent Cloud. The use case will be centered around creating dynamic product promotions based on real-time purchases, inventory levels, and clickstream data applying a number of transformations like filter, aggregate or join on your data streams, and then easily loading it in the destination application, all without having to type a single line of code.
 
 Attendees will leave with a clear understanding of their upcoming ETL implementation, how to get started with Confluent Cloud, and the resources available to assist with development.
 
@@ -65,7 +64,7 @@ This workshop is perfect for those looking to build the foundation for your data
 
 ## <a name="step-2"></a>Step 2: Create an Environment and Cluster
 
-An environment contains Confluent clusters and its deployed components such as Connect, ksqlDB, and Schema Registry. You have the ability to create different environments based on your company's requirements. Confluent has seen companies use environments to separate Development/Testing, Pre-Production, and Production clusters.
+An environment contains Confluent clusters and its deployed components such as Connect, flink, and Schema Registry. You have the ability to create different environments based on your company's requirements. Confluent has seen companies use environments to separate Development/Testing, Pre-Production, and Production clusters.
 
 1. Click **+ Add environment**.
     > **Note:** There is a *default* environment ready in your account upon account creation. You can use this *default* environment for the purpose of this workshop if you do not wish to create an additional environment.
@@ -80,24 +79,58 @@ An environment contains Confluent clusters and its deployed components such as C
 
     * Click **Begin Configuration**.
 
-    * Choose **GCP** as your Cloud Provider and your preferred Region.
-        > **Note:** GCP is required as your Cloud Provider since you will be utilizing the fully-managed BigQuery sink connector for this workshop
+    * Choose **AWS** as your Cloud Provider and your preferred Region.
+        > **Note:** AWS is required as your Cloud Provider since you will be utilizing the fully-managed Redshift sink connector for this workshop
 
     * Specify a meaningful **Cluster Name** and then review the associated *Configuration & Cost*, *Usage Limits*, and *Uptime SLA* before clicking **Launch Cluster**.
 
 ***
 
 
-## <a name="step-3"></a>Step 3: Setup ksqlDB
+## <a name="step-3"></a>Create a Flink Compute Pool
 
-1. On the navigation menu, select **ksqlDB** and click **Create application myself**.
+1. On the navigation menu, select **Flink** and click **Create Compute Pool**.
 
-1. Select **Global Access** and then **Continue**.
+<div align="center" padding=25px>
+    <img src="images/create-flink-pool-1.png" width=50% height=50%>
+</div>
 
-1. Name your ksqlDB application and set the streaming units to
+2. Select **Region** and then **Continue**.
+<div align="center" padding=25px>
+    <img src="images/create-flink-pool-2.png" width=50% height=50%>
+</div>
 
-1. Click **Launch Application**!
-> **Note:** A streaming unit, also known as a Confluent Streaming Unit (CSU), is the unit of pricing for Confluent Cloud ksqlDB. A CSU is an abstract unit that represents the linearity of performance.
+3. Name you Pool Name and set the capacity units (CFUs) to **5**. Click **Finish**.
+
+<div align="center" padding=25px>
+    <img src="images/create-flink-pool-3.png" width=50% height=50%>
+</div>
+
+> **Note:** The capacity of a compute pool is measured in CFUs. Compute pools expand and shrink automatically based on the resources required by the statements using them. A compute pool without any running statements scale down to zero. The maximum size of a compute pool is configured during creation. 
+
+4. Flink Compute pools will be ready shortly. You can click **Open SQL workspace** when the pool is ready to use.
+
+<div align="center" padding=25px>
+    <img src="images/create-flink-pool-4.png" width=50% height=50%>
+</div>
+
+5. Change your workspace name by clicking **settings button**. Click **Save changes** after you update the workspace name.
+
+<div align="center" padding=25px>
+    <img src="images/flink-workspace-1.png" width=50% height=50%>
+</div>
+
+6. Set the default Catalog as your environment name.
+
+<div align="center" padding=25px>
+    <img src="images/flink-workspace-2.png" width=50% height=50%>
+</div>
+
+7. Set the default Database as your cluster name.
+
+<div align="center" padding=25px>
+    <img src="images/flink-workspace-3.png" width=50% height=50%>
+</div>
 
 ***
 
@@ -171,21 +204,21 @@ This section will be conducted by the workshop instructor.  You can find additio
 
 ***
 
-## <a name="step-8"></a>Step 8: Create Streams and Tables using ksqlDB
+## <a name="step-8"></a>Step 8: Create Streams and Tables using flink
 
-Now that you have data flowing through Confluent, you can now easily build stream processing applications using ksqlDB. You are able to continuously transform, enrich, join, and aggregate your data using simple SQL syntax. You can gain value from your data directly from Confluent in real-time. Also, ksqlDB is a fully managed service within Confluent Cloud with a 99.9% uptime SLA. You can now focus on developing services and building your data pipeline while letting Confluent manage your resources for you.
+Now that you have data flowing through Confluent, you can now easily build stream processing applications using flink. You are able to continuously transform, enrich, join, and aggregate your data using simple SQL syntax. You can gain value from your data directly from Confluent in real-time. Also, flink is a fully managed service within Confluent Cloud with a 99.9% uptime SLA. You can now focus on developing services and building your data pipeline while letting Confluent manage your resources for you.
 
-With ksqlDB, you have the ability to leverage streams and tables from your topics in Confluent. A stream in ksqlDB is a topic with a schema and it records the history of what has happened in the world as a sequence of events. Tables are similar to traditional RDBMS tables. If you’re interested in learning more about ksqlDB and the differences between streams and tables, I recommend reading these two blogs [here](https://www.confluent.io/blog/kafka-streams-tables-part-3-event-processing-fundamentals/) and [here](https://www.confluent.io/blog/how-real-time-stream-processing-works-with-ksqldb/).
+With flink, you have the ability to leverage streams and tables from your topics in Confluent. A stream in flink is a topic with a schema and it records the history of what has happened in the world as a sequence of events. Tables are similar to traditional RDBMS tables. If you’re interested in learning more about flink and the differences between streams and tables, I recommend reading these two blogs [here](https://www.confluent.io/blog/kafka-streams-tables-part-3-event-processing-fundamentals/) and [here](https://www.confluent.io/blog/how-real-time-stream-processing-works-with-flink/).
 
-1. Navigate back to the ksqlDB tab and click on your application name. This will bring us to the ksqlDB editor.
+1. Navigate back to the flink tab and click on your application name. This will bring us to the flink editor.
 
->**Note:** You can interact with ksqlDB through the Editor. You can create a stream by using the CREATE STREAM statement and a table using the CREATE TABLE statement.
+>**Note:** You can interact with flink through the Editor. You can create a stream by using the CREATE STREAM statement and a table using the CREATE TABLE statement.
 
-To write streaming queries against topics, you will need to register the topics with ksqlDB as a stream and/or table.
+To write streaming queries against topics, you will need to register the topics with flink as a stream and/or table.
 
 2. First, create a **Stream** by registering the **abc.clicks** topic as a stream called **clicks**
 
-    * Insert the following query into the ksqlDB editor and click ‘**Run query**’ to execute
+    * Insert the following query into the flink editor and click ‘**Run query**’ to execute
 
 ```SQL
 CREATE STREAM clicks(
@@ -271,7 +304,7 @@ SELECT * FROM INVENTORY EMIT CHANGES;
 
 ***
 
-## <a name="step-9"></a>Step 9: Stream Processing with ksqlDB
+## <a name="step-9"></a>Step 9: Stream Processing with flink
 
 1. Create a **PRODUCT_TXN_PER_HOUR** table based on the **INVENTORY** table and **TRANSACTIONS** stream.  Make sure to first set 'auto.offset.reset' = 'earliest' before running the query.
 
@@ -324,11 +357,11 @@ SELECT * FROM ABC_PROMOTIONS EMIT CHANGES;
 
 ***
 
-## <a name="step-10"></a>Step 10: Connect BigQuery sink to Confluent Cloud
+## <a name="step-10"></a>Step 10: Connect Redshift sink to Confluent Cloud
 
-The next step is to sink data from Confluent Cloud into BigQuery using the [fully-managed BigQuery Sink connector](https://docs.confluent.io/cloud/current/connectors/cc-gcp-bigquery-sink.html). The connector will send real time data on promotions into BigQuery.
+The next step is to sink data from Confluent Cloud into Redshift using the [fully-managed Redshift Sink connector](https://docs.confluent.io/cloud/current/connectors/cc-AWS-Redshift-sink.html). The connector will send real time data on promotions into Redshift.
 
-1. First, you will create the connector that will automatically create a BigQuery table and populate that table with the data from the promotions topic within Confluent Cloud. From the Confluent Cloud UI, click on the Connectors tab on the navigation menu and select **+Add connector**. Search and click on the BigQuery Sink icon.
+1. First, you will create the connector that will automatically create a Redshift table and populate that table with the data from the promotions topic within Confluent Cloud. From the Confluent Cloud UI, click on the Connectors tab on the navigation menu and select **+Add connector**. Search and click on the Redshift Sink icon.
 
 2. Enter the following configuration details. The remaining fields can be left blank.
 
@@ -337,13 +370,13 @@ The next step is to sink data from Confluent Cloud into BigQuery using the [full
 | Setting                | Value                                   |
 |------------------------|-----------------------------------------|
 | `Topics`               | pksqlc-...ABC_PROMOTIONS                |
-| `Name`                 | BigQuerySinkConnector                   |
+| `Name`                 | RedshiftSinkConnector                   |
 | `Input message format` | Avro                                    |
 | `Kafka API Key`        | From step 6                             |
 | `Kafka API Secret`     | From step 6                             |
-| `GCP credentials file` | Upload_your_GCP_Credentials_file        |
-| `Project ID`           | your GCP Project ID                     |
-| `Dataset`              | your GCP Dataset Name                   |
+| `AWS credentials file` | Upload_your_AWS_Credentials_file        |
+| `Project ID`           | your AWS Project ID                     |
+| `Dataset`              | your AWS Dataset Name                   |
 | `Auto create tables`   | True                                    |
 | `Tasks`                | 1                                       |
 
@@ -355,7 +388,7 @@ The next step is to sink data from Confluent Cloud into BigQuery using the [full
 
 5. This should return you to the main Connectors landing page. Wait for your newly created connector to change status from **Provisioning** to **Running**.
 
-6. Shortly after, the workshop instructor will switch over to the BigQuery page within Google Console to show that a table matching the topic name you used when creating the BigQuery connector in Confluent Cloud has been created within the **workshop** dataset.  Clicking the table name should open a BigQuery editor for it:
+6. Shortly after, the workshop instructor will switch over to the Redshift page within Google Console to show that a table matching the topic name you used when creating the Redshift connector in Confluent Cloud has been created within the **workshop** dataset.  Clicking the table name should open a Redshift editor for it:
 
 
 
@@ -365,9 +398,9 @@ The next step is to sink data from Confluent Cloud into BigQuery using the [full
 
 Deleting the resources you created during this workshop will prevent you from incurring additional charges.
 
-1. The first item to delete is the ksqlDB application. Select the Delete button under Actions and enter the Application Name to confirm the deletion.
+1. The first item to delete is the flink application. Select the Delete button under Actions and enter the Application Name to confirm the deletion.
 
-2. Delete the BigQuery sink connector by navigating to **Connectors** in the navigation panel, clicking your connector name, then clicking the trash can icon in the upper right and entering the connector name to confirm the deletion.
+2. Delete the Redshift sink connector by navigating to **Connectors** in the navigation panel, clicking your connector name, then clicking the trash can icon in the upper right and entering the connector name to confirm the deletion.
 
 3. Delete the mongoDB Atlas source connector by navigating to **Connectors** under Cluster in the navigation panel, clicking your connector name, then clicking the trash can icon in the upper right and entering the connector name to confirm the deletion.
 
@@ -385,10 +418,10 @@ Here are some links to check out if you are interested in further testing:
 
 * [Quickstart](https://docs.confluent.io/cloud/current/get-started/index.html) with Confluent Cloud
 
-* Confluent Cloud ksqlDB [Quickstart](https://docs.confluent.io/cloud/current/get-started/ksql.html)
+* Confluent Cloud flink [Quickstart](https://docs.confluent.io/cloud/current/get-started/ksql.html)
 
 * Confluent Cloud [Demos/Examples](https://docs.confluent.io/platform/current/tutorials/examples/ccloud/docs/ccloud-demos-overview.html)
 
-* ksqlDB [Tutorials](https://kafka-tutorials.confluent.io/)
+* flink [Tutorials](https://kafka-tutorials.confluent.io/)
 
 * Full repository of Connectors within [Confluent Hub](https://www.confluent.io/hub/)
