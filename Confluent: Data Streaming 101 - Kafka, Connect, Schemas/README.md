@@ -285,154 +285,323 @@ This section will be conducted by the workshop instructor.  You can find additio
 
 ## <a name="step-8"></a>Step 8: Stream Processing with Flink
 
-Now that you have data flowing through Confluent, you can now easily build stream processing applications using flink. You are able to continuously transform, enrich, join, and aggregate your data using simple SQL syntax. You can gain value from your data directly from Confluent in real-time. Also, flink is a fully managed service within Confluent Cloud with a 99.9% uptime SLA. You can now focus on developing services and building your data pipeline while letting Confluent manage your resources for you.
+Kafka topics and schemas are always in sync with our Flink cluster. Any topic created in Kafka is visible directly as a table in Flink, and any table created in Flink is visible as a topic in Kafka. Effectively, Flink provides a SQL interface on top of Confluent Cloud.
 
-With flink, you have the ability to leverage streams and tables from your topics in Confluent. A stream in flink is a topic with a schema and it records the history of what has happened in the world as a sequence of events. Tables are similar to traditional RDBMS tables. If you’re interested in learning more about flink and the differences between streams and tables, I recommend reading these two blogs [here](https://www.confluent.io/blog/kafka-streams-tables-part-3-event-processing-fundamentals/) and [here](https://www.confluent.io/blog/how-real-time-stream-processing-works-with-flink/).
+Following mappings exist:
+| Kafka          | Flink     | 
+| ------------   | --------- |
+| Environment    | Catalog   | 
+| Cluster        | Database  |
+| Topic + Schema | Table     |
 
-1. Navigate back to the flink tab and click on your application name. This will bring us to the flink editor.
+1. Familiarize with **Flink SQL** Basics.
 
->**Note:** You can interact with flink through the Editor. You can create a stream by using the CREATE STREAM statement and a table using the CREATE TABLE statement.
+```sql
+SHOW TABLES;
+```
+<div align="center">
+    <img src="images/show-tables.png" width=75% height=75%>
+</div>
 
-To write streaming queries against topics, you will need to register the topics with flink as a stream and/or table.
+1. Understand how the table `shoe_products` was created:
 
-2. First, create a **Stream** by registering the **abc.clicks** topic as a stream called **clicks**
+```sql
+SHOW CREATE TABLE shoe_products;
+```
 
-    * Insert the following query into the flink editor and click ‘**Run query**’ to execute
+<div align="center">
+    <img src="images/show-table-shoe_products.png" width=75% height=75%>
+</div>
 
-```SQL
-CREATE STREAM clicks(
-    ip VARCHAR,
-    userid INT,
-    prod_id INT,
-    bytes BIGINT,
-    referrer VARCHAR,
-    agent VARCHAR,
-    click_ts BIGINT
-    )
+1. Let's check if any product records exist in the table.
+```sql
+SELECT * FROM shoe_products;
+```
+
+Windows are central to processing infinite streams. Windows split the stream into “buckets” of finite size, over which you can apply computations. This document focuses on how windowing is performed in Confluent Cloud for Apache Flink and how you can benefit from windowed functions.
+
+Flink provides several window table-valued functions (TVF) to divide the elements of your table into windows, including:
+
+a. [Tumble Windows](https://docs.confluent.io/cloud/current/flink/reference/queries/window-tvf.html#flink-sql-window-tvfs-tumble)
+<br> 
+b. [Hop Windows](https://docs.confluent.io/cloud/current/flink/reference/queries/window-tvf.html#flink-sql-window-tvfs-hop)
+<br> 
+c. [Cumulate Windows](https://docs.confluent.io/cloud/current/flink/reference/queries/window-tvf.html#flink-sql-window-tvfs-cumulate)
+<br> 
+
+1. Find the amount of orders for one minute intervals (tumbling window aggregation).
+```sql
+SELECT window_end,
+       COUNT(DISTINCT order_id) AS num_orders
+FROM TABLE(
+  TUMBLE(TABLE shoe_orders, DESCRIPTOR(`$rowtime`), INTERVAL '1' MINUTES))
+GROUP BY window_end;
+```
+
+<div align="center">
+    <img src="images/flink-window-function.gif" width=75% height=75%>
+</div>
+
+> **Note:** Check this [link](https://docs.confluent.io/cloud/current/flink/reference/queries/window-tvf.html) for the detailed information about Flink Window aggregations.
+
+
+A primary key constraint is a hint for Flink SQL to leverage for optimizations which specifies that a column or a set of columns in a table or a view are unique and they do not contain null. No columns in a primary key can be nullable. A primary key uniquely identifies a row in a table.
+For more details please check this [link.](https://docs.confluent.io/cloud/current/flink/reference/statements/create-table.html#primary-key-constraint)
+
+1. Create a new table that will store unique customers only.
+```sql
+CREATE TABLE shoe_customers_keyed (
+  customer_id STRING,
+  first_name STRING,
+  last_name STRING,
+  email STRING,
+  PRIMARY KEY (customer_id) NOT ENFORCED
+) DISTRIBUTED BY (customer_id) INTO 3 BUCKETS;
+```
+
+2. Compare the new table `shoe_customers_keyed` with `shoe_customers`.
+```sql
+SHOW CREATE TABLE shoe_customers;
+```
+```sql
+SHOW CREATE TABLE shoe_customers_keyed;
+```
+
+<div align="center">
+    <img src="images/flink-tables-primary-key.png" width=75% height=75%>
+</div>
+
+By creating a table with Primary Key option, you changed the changelog-mode to upsert which means that all rows with same primary key are related and must be partitioned together.
+For more details please check this [link.](https://docs.confluent.io/cloud/current/flink/reference/statements/create-table.html#changelog-mode)
+
+3. Create a new Flink job to copy customer data from the original table to the new table.
+```sql
+INSERT INTO shoe_customers_keyed
+  SELECT id,
+         first_name,
+         last_name,
+         email
+    FROM shoe_customers;
+```
+
+
+7. Product Catalog Table also requires unique rows for each item.
+Create a new table in order to have the latest information of each product. 
+It is useful when you need to know the latest price of the product for analytic purposes or you need to populate latest product information while joining with other tables.
+```sql
+CREATE TABLE shoe_products_keyed(
+  product_id STRING,
+  brand STRING,
+  `model` STRING,
+  sale_price INT,
+  rating DOUBLE,
+  PRIMARY KEY (product_id) NOT ENFORCED
+) DISTRIBUTED BY (product_id) INTO 3 BUCKETS;
+```
+
+8. Create a new Flink job to copy product data from the original table to the new table. 
+```sql
+INSERT INTO shoe_products_keyed
+  SELECT id,
+         brand,
+         `name`,
+         sale_price,
+         rating 
+    FROM shoe_products;
+```
+
+Flink supports complex and flexible join operations over dynamic tables. There are a number of different types of joins to account for the wide variety of semantics that queries may require.
+
+By default, the order of joins is not optimized. Tables are joined in the order in which they are specified in the FROM clause.
+
+You can tweak the performance of your join queries, by listing the tables with the lowest update frequency first and the tables with the highest update frequency last. Make sure to specify tables in an order that doesn’t yield a cross join (Cartesian product), which aren’t supported and would cause a query to fail.
+For more details please check this [link.](https://docs.confluent.io/cloud/current/flink/reference/queries/joins.html)
+
+5. Enrich Order information with Customer and Product Table.
+   Create a new table for enriched order information.
+```sql
+CREATE TABLE shoe_orders_enriched_customer_product(
+  order_id INT,
+  first_name STRING,
+  last_name STRING,
+  email STRING,
+  brand STRING,
+  `model` STRING,
+  sale_price INT,
+  rating DOUBLE
+) DISTRIBUTED BY (order_id) INTO 3 BUCKETS
 WITH (
-    KAFKA_TOPIC='abc.clicks',
-    VALUE_FORMAT='JSON',
-    TIMESTAMP='click_ts'
+    'changelog.mode' = 'retract'
 );
 ```
 
-3. Create another **Stream** by registering the **abc.transactions** topic as a stream called **transactions**
-
+Insert joined data from 3 tables into the new table.
 ```sql
-CREATE STREAM transactions (
-  fullDocument STRUCT<
-    cust_id INT,
-    prod_id INT,
-    txn_ts BIGINT>)
-  WITH (
-    KAFKA_TOPIC='abc.transactions',
-    VALUE_FORMAT='JSON'
-  );
+INSERT INTO shoe_orders_enriched_customer_product(
+  order_id,
+  first_name,
+  last_name,
+  email,
+  brand,
+  `model`,
+  sale_price,
+  rating)
+SELECT
+  so.order_id,
+  sc.first_name,
+  sc.last_name,
+  sc.email,
+  sp.brand,
+  sp.`model`,
+  sp.sale_price,
+  sp.rating
+FROM 
+  shoe_orders so
+  INNER JOIN shoe_customers_keyed sc 
+    ON so.customer_id = sc.customer_id
+  INNER JOIN shoe_products_keyed sp
+    ON so.product_id = sp.product_id;
 ```
 
-4. Create another **Stream** by registering the **abc.inventory** topic as a stream called **inventory00**
-
-```SQL
-CREATE STREAM inventory00 (
-  fullDocument STRUCT<
-    product_id INT,
-    name VARCHAR,
-    "list" INT,
-    discount INT,
-    available INT,
-    capacity INT,
-    txn_hour INT>)
-  WITH (
-    KAFKA_TOPIC='abc.inventory',
-    VALUE_FORMAT='JSON'
-  );
+Verify that the data was joined successfully.
+```sql
+SELECT * FROM shoe_orders_enriched_customer_product;
 ```
 
-5. Create an **inventory Table** based on the **inventory00** stream that you just created
-    * Make sure to set ‘auto.offset.reset’ = ‘earliest’ first
-    * This is a Persistent Query.  A Persistent Query runs indefinitely as it processes rows of events and writes to a new topic. You can create persistent queries by deriving new streams and new tables from existing streams or tables.
+<div align="center">
+    <img src="images/flink-join-orders-enrichment.gif" width=75% height=75%>
+</div>
 
-```SQL
-CREATE TABLE INVENTORY AS
-  SELECT
-FULLDOCUMENT->PRODUCT_ID AS PRODUCT_ID,
-LATEST_BY_OFFSET(FULLDOCUMENT->NAME) AS NAME,
-LATEST_BY_OFFSET(FULLDOCUMENT->"list") AS LIST_PRICE,
-LATEST_BY_OFFSET(FULLDOCUMENT->DISCOUNT) AS DISCOUNT,
-LATEST_BY_OFFSET(FULLDOCUMENT->AVAILABLE) AS AVAILABLE,
-LATEST_BY_OFFSET(FULLDOCUMENT->CAPACITY) AS CAPACITY,
-LATEST_BY_OFFSET(FULLDOCUMENT->TXN_HOUR) AS TXN_HOUR
-FROM INVENTORY00
-GROUP BY FULLDOCUMENT->PRODUCT_ID;
+
+Customer Loyalty Level Calculation
+1. Calculate loyalty levels of each customer
+```sql
+SELECT
+  email,
+  SUM(sale_price) AS total,
+  CASE
+    WHEN SUM(sale_price) > 700000 THEN 'GOLD'
+    WHEN SUM(sale_price) > 70000 THEN 'SILVER'
+    WHEN SUM(sale_price) > 7000 THEN 'BRONZE'
+    ELSE 'CLIMBING'
+  END AS loyalty_level
+FROM shoe_orders_enriched_customer_product
+GROUP BY email;
 ```
 
-6. Next, go to the **Tables** tab at the top and click on **INVENTORY**. This provides information on the table, topic (including replication, partitions, and key and value serialization), and schemas.
+<div align="center">
+    <img src="images/flink-loyalty-level-calculation.gif" width=75% height=75%>
+</div>
 
-7. Click on **Query table** which will take you back to the **Editor**. You will see the following query auto-populated in the editor which may be already running by default. If not, click on **Run query**. An option is to set the ‘auto.offset.reset=earliest’ before clicking **Run query**.
 
-Optionally, you can navigate to the editor and construct the select statement on your own, which should look like the following:
-
-```SQL
-SELECT * FROM INVENTORY EMIT CHANGES;
+2. Create a new table that will store the loyalty levels if the customers.
+```sql
+CREATE TABLE shoe_loyalty_levels(
+  email STRING,
+  total BIGINT,
+  loyalty_level STRING,
+  PRIMARY KEY (email) NOT ENFORCED
+) DISTRIBUTED BY (email) INTO 3 BUCKETS ;
 ```
 
-8. You should see the following data within your **INVENTORY** table.
+3. Insert the calculated loyal levels into the new table.
+```sql
+INSERT INTO shoe_loyalty_levels(
+ email,
+ total,
+ loyalty_level)
+SELECT
+  email,
+  SUM(sale_price) AS total,
+  CASE
+    WHEN SUM(sale_price) > 700000 THEN 'GOLD'
+    WHEN SUM(sale_price) > 70000 THEN 'SILVER'
+    WHEN SUM(sale_price) > 7000 THEN 'BRONZE'
+    ELSE 'CLIMBING'
+  END AS loyalty_level
+FROM shoe_orders_enriched_customer_product
+GROUP BY email;
+```
 
-9. Stop the query by clicking **Stop**
+4. Verify the results.
+```sql
+SELECT *
+FROM shoe_loyalty_levels;
+```
 
+<div align="center">
+    <img src="images/flink-loyalty-level-table.gif" width=75% height=75%>
+</div>
 
 ***
 
-## <a name="step-9"></a>Step 9: Stream Processing with flink
-
-1. Create a **PRODUCT_TXN_PER_HOUR** table based on the **INVENTORY** table and **TRANSACTIONS** stream.  Make sure to first set 'auto.offset.reset' = 'earliest' before running the query.
-
-```SQL
-CREATE TABLE PRODUCT_TXN_PER_HOUR WITH (FORMAT='AVRO') AS
-SELECT T.FULLDOCUMENT->PROD_ID,
-       COUNT(*) AS TXN_PER_HOUR,
-       MAX(I.TXN_HOUR) AS EXPECTED_TXN_PER_HOUR,
-       (CAST(MAX(I.AVAILABLE) AS DOUBLE)/ CAST(MAX(I.CAPACITY) AS DOUBLE))*100 AS STOCK_LEVEL, I.NAME AS PRODUCT_NAME
-FROM  TRANSACTIONS T
-      LEFT JOIN INVENTORY I
-      ON T.FULLDOCUMENT->PROD_ID = I.PRODUCT_ID
-WINDOW HOPPING (SIZE 1 HOUR, ADVANCE BY 5 MINUTES)
-GROUP BY T.FULLDOCUMENT->PROD_ID,
-         I.NAME;
+Create Promotional Campaigns
+Create special promotions based on the enriched orders table.
+1. Find eligible customers who order **'Jones-Stokes'** shoes **10th time**.
+```sql
+SELECT
+   email,
+   COUNT(*) AS total,
+   (COUNT(*) % 10) AS sequence,
+   (COUNT(*) % 10) = 0 AS next_one_free
+FROM shoe_orders_enriched_customer_product
+WHERE brand = 'Jones-Stokes'
+GROUP BY email;
 ```
 
-2. Create a stream on the underlying topic backing the **PRODUCT_TXN_PER_HOUR** table that you just created
-    * Determine the name of the backing topic by navigating to the **Topics** tab on the left hand side menu under **Cluster**.  You should see a topic that begins with **pksqlc-**… and ends with **PRODUCT_TXN_PER_HOUR**. Click on this topic and copy down this topic name as it will be required for the following query
-    * Create the stream based on the backing topic for PRODUCT_TXN_PER_HOUR table
-
-```SQL
-CREATE STREAM PRODUCT_TXN_PER_HOUR_STREAM WITH (KAFKA_TOPIC='pksqlc-...PRODUCT_TXN_PER_HOUR', FORMAT='AVRO');
+2. Find eligible customers who ordered **'Braun-Bruen'** and **'Will Inc'** in total more than **10**.
+```sql
+SELECT
+   email,
+   COLLECT(brand) AS products,
+   'bundle_offer' AS promotion_name
+FROM shoe_orders_enriched_customer_product
+WHERE brand IN ('Braun-Bruen', 'Will Inc')
+GROUP BY email
+HAVING COUNT(DISTINCT brand) = 2 AND COUNT(brand) > 10;
 ```
 
-3. Now you want to perform a query to see which products you should create promotions for based on the following criteria
-    * High inventory level (>80% of capacity)
-    * Low transactions (< expected transactions/hour)
-
-```SQL
-CREATE STREAM ABC_PROMOTIONS AS
-SELECT  ROWKEY,
-        TIMESTAMPTOSTRING(ROWTIME,'yyyy-MM-dd HH:mm:ss','Europe/London') AS TS,
-        AS_VALUE(ROWKEY -> PROD_ID) AS PROD_ID ,
-        ROWKEY -> PRODUCT_NAME AS PRODUCT_NAME,
-        STOCK_LEVEL ,
-        TXN_PER_HOUR ,
-        EXPECTED_TXN_PER_HOUR
-   FROM PRODUCT_TXN_PER_HOUR_STREAM
-WHERE TXN_PER_HOUR < EXPECTED_TXN_PER_HOUR
-  AND  STOCK_LEVEL > 80
-  ;
+3. Create a table for promotion notifications.
+```sql
+CREATE TABLE shoe_promotions(
+  email STRING,
+  promotion_name STRING,
+  PRIMARY KEY (email) NOT ENFORCED
+) DISTRIBUTED BY (email) INTO 3 BUCKETS;
 ```
 
-4. Query the results.  Make sure to set ‘auto.offset.reset=earliest’
+4. Insert all the promotional information to the shoe_promotions table.  
+```sql
+INSERT INTO shoe_promotions
+SELECT
+   email,
+   'next_free' AS promotion_name
+FROM shoe_orders_enriched_customer_product
+WHERE brand = 'Jones-Stokes'
+GROUP BY email
+HAVING COUNT(*) % 10 = 0;
 
-```SQL
-SELECT * FROM ABC_PROMOTIONS EMIT CHANGES;
+INSERT INTO shoe_promotions
+SELECT
+   email,
+   'bundle_offer' AS promotion_name
+FROM shoe_orders_enriched_customer_product
+WHERE brand IN ('Braun-Bruen', 'Will Inc')
+GROUP BY email
+HAVING COUNT(DISTINCT brand) = 2 AND COUNT(brand) > 10;
 ```
+
+5. Verify the results.
+```sql
+SELECT *
+FROM shoe_promotions;
+```
+
+<div align="center">
+    <img src="images/flink-promotion-notifications.gif" width=75% height=75%>
+</div>
+
+
 
 ***
 
