@@ -97,14 +97,14 @@ An environment contains clusters and its deployed components such as Apache Flin
 
 ## <a name="step-3"></a>Create a Flink Compute Pool
 
-1. Click on the link with your environment name in the navigation bookmark links at the top of your screen.
+1. Click on the link with your environment name in the navigation bookmark links at the top left of your screen.
 2. Select the **Flink** tab and click **Create Compute Pool**.
 
 <div align="center" padding=25px>
     <img src="images/create-flink-pool-updated-1.png" width=50% height=50%>
 </div>
 
-3. Select `Las Vegas (us-west4)` as the **Region** and then click **Continue**.
+3. Select `Mumbai` as the **Region** and then click **Continue**.
 
 <div align="center" padding=25px>
     <img src="images/create-flink-pool-updated-2.png" width=50% height=50%>
