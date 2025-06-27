@@ -12,7 +12,7 @@
 1. [Create Flink Compute Pool](#step-3)
 1. [Create a Topic using the Cloud UI](#step-4)
 1. [Create an API Key Pair](#step-5)
-1. [Connect mongoDB Atlas source to Confluent Cloud](#step-6)
+1. [Setup Datagen Connectors](#step-6)
 1. [Cloud Dashboard Walkthrough](#step-7)
 1. [Flink Basics](#step-8)
 1. [Stream Processing with Flink](#step-9)
@@ -144,6 +144,8 @@ An environment contains clusters and its deployed components such as Apache Flin
 
 1. Click **Create with defaults**.
 
+1. Repeat the steps for two other topics **Shoe_Orders** and **Shoe_Products**.
+
 ***
 
 
@@ -161,38 +163,118 @@ An environment contains clusters and its deployed components such as Apache Flin
 
 ***
 
-## <a name="step-6"></a>Step 6: Connect mongoDB Atlas to Confluent Cloud
+## <a name="step-6"></a>Create Datagen Connectors for Customers, Products and Orders
 
-The next step is to source data from mongoDB using the [fully-managed mongoDB Atlas Source connector] (https://docs.confluent.io/cloud/current/connectors/cc-mongo-db-source.html). The connector will send real time data on clicks, inventory, orders and transactions to Confluent Cloud.
+The next step is to produce sample data using the Datagen Source connector. You will create three Datagen Source connectors. One connector will send sample customer data to **shoe_customers** topic, the other connector will send sample product data to **shoe_products** topic, and final connector will send sample order data to **shoe_orders** topic.
 
-1. First, you will create the connector that will send data to clicks, inventory, and transactions topics. From the Confluent Cloud UI, click on the **Connectors** tab on the navigation menu. Search and click on the **mongoDB Atlas Source** icon.
+1. First, you will create the connector that will send data to **shoe_customers**. From the Confluent Cloud UI, click on the **Connectors** tab on the navigation menu. Click on the **Datagen Source** icon.
 
-1. Enter the following configuration details. The remaining fields can be left blank.
+<div align="center" padding=25px>
+    <img src="images/connectors.png" width=75% height=75%>
+</div>
+
+2. Enter the following configuration details. The remaining fields can be left blank.
 
 <div align="center">
 
-| Setting            | Value                        |
-|------------------------|-----------------------------------------|
-| `Name`      | MongoDbAtlasSourceConnector |
-| `Kafka API Key`              | From step 6                 |
-| `Kafka API Secret`           | From step 6              |
-| `Connection host`    | Will be provided during workshop            |
-| `Connection user` | dbUser               |
-| `Connection password`    | MONGODB_PW             |
-| `Database name`    | abc           |
-| `Startup mode`    | copy_existing             |
-| `Output message format`    | JSON           |
-| `Tasks`    | 1             |
-
+| setting                            | value                        |
+|------------------------------------|------------------------------|
+| name                               | DatagenSourceConnector_shoe_customers |
+| api key                            | [*from step 5* ](#step-5)    |
+| api secret                         | [*from step 5* ](#step-5)    |
+| topic                              | shoe_customers               |
+| output message format              | AVRO                         |
+| quickstart                         | Shoe customers               |
+| max interval between messages (ms) | 1000                         |
+| tasks                              | 1                            |
 </div>
 
-3. Click on **Next**.
+<br>
 
-1. Before launching the connector, you will be brought to the summary page.  Once you have reviewed the configs and everything looks good, select **Launch**.
+<div align="center" padding=25px>
+    <img src="images/datagen-1.png" width=75% height=75%>
+    <img src="images/datagen-2.png" width=75% height=75%>
+</div>
 
-1. This should return you to the main Connectors landing page. Wait for your newly created connector to change status from **Provisioning** to **Running**.
+3. Click on **Show advanced configurations** and complete the necessary fields and click **Continue**.
 
-1. If you navigate back to the **Topics** tab you will notice three newly created topics **abc.transactions**, **abc.orders** and **abc.clicks**.  The connector automatically created these two additional topics based on the collections in the mongoDB Atlas database where data is being sourced from.
+<div align="center" padding=25px>
+    <img src="images/datagen-3.png" width=75% height=75%>
+</div>
+   
+4. Before launching the connector, you should see something similar to the following. If everything looks similar, select **Launch**. 
+
+<div align="center" padding=25px>
+    <img src="images/datagen-4.png" width=50% height=50%>
+</div>
+
+5. Next, create the second connector that will send data to **shoe_products**. Click on **+ Add Connector** and then the **datagen Source** icon again. 
+
+6. Enter the following configuration details. The remaining fields can be left blank. 
+
+<div align="center">
+
+| setting                            | value                        |
+|------------------------------------|------------------------------|
+| name                               | DatagenSourceConnector_shoe_products |
+| api key                            | [*from step 5* ](#step-5)    |
+| api secret                         | [*from step 5* ](#step-5)    |
+| topic                              | shoe_products                |
+| output message format              | AVRO                         |
+| quickstart                         | Shoes                        |
+| max interval between messages (ms) | 1000                         |
+| tasks                              | 1                            |
+</div>
+
+<br> 
+
+7. Review the output again and then select **Launch**.
+
+8. Next, create the second connector that will send data to **shoe_orders**. Click on **+ Add Connector** and then the **datagen Source** icon again. 
+
+9. Enter the following configuration details. The remaining fields can be left blank. 
+
+<div align="center">
+
+| setting                            | value                        |
+|------------------------------------|------------------------------|
+| name                               | DatagenSourceConnector_shoe_orders |
+| api key                            | [*from step 5* ](#step-5)    |
+| api secret                         | [*from step 5* ](#step-5)    |
+| topic                              | shoe_orders                  |
+| output message format              | AVRO                         |
+| quickstart                         | Shoe orders                  |
+| max interval between messages (ms) | 1000                         |
+| tasks                              | 1                            |
+</div>
+
+<br> 
+
+10. Review the output again and then select **Launch**.
+
+> **Note:** It may take a few moments for the connectors to launch. Check the status and when both are ready, the status should show *running*. <br> <div align="center"><img src="images/running-connectors.png" width=75% height=75%></div>
+
+> **Note:** If the connectors fails, there are a few different ways to troubleshoot the error:
+> * Click on the *Connector Name*. You will see a play and pause button on this page. Click on the play button.
+> * Click on the *Connector Name*, go to *Settings*, and re-enter your API key and secret. Double check there are no extra spaces at the beginning or end of the key and secret that you may have accidentally copied and pasted.
+> * If neither of these steps work, try creating another Datagen connector.
+
+
+11. You can view the sample data flowing into topics in real time. Navigate to  the **Topics** tab and then click on the **shoe_customers**. You can view the production and consumption throughput metrics here.
+
+12. Click on **Messages**.
+
+* You should now be able to see the messages within the UI. You can view the specific messages by clicking the icon. 
+
+<div align="center">
+    <img src="images/message-view-1.png">
+</div> 
+
+* The message details should look something like the following. 
+
+<div align="center">
+    <img src="images/message-view-2.png" width=75% height=75%>
+</div>
 
 ***
 
