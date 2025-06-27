@@ -14,10 +14,9 @@
 1. [Create an API Key Pair](#step-5)
 1. [Setup Datagen Connectors](#step-6)
 1. [Cloud Dashboard Walkthrough](#step-7)
-1. [Flink Basics](#step-8)
-1. [Stream Processing with Flink](#step-9)
-1. [Connect Redshift sink to Confluent Cloud](#step-10)
-1. [Clean Up Resources](#step-11)
+1. [Stream Processing with Flink](#step-8)
+1. [Connect Redshift sink to Confluent Cloud](#step-9)
+1. [Clean Up Resources](#step-10)
 1. [Confluent Resources and Further Testing](#confluent-resources-and-further-testing)
 
 ***
@@ -283,62 +282,8 @@ The next step is to produce sample data using the Datagen Source connector. You 
 This section will be conducted by the workshop instructor.  You can find additional information on the Cloud Dashboard [here](https://docs.confluent.io/cloud/current/overview.html) and [here](https://docs.confluent.io/cloud/current/client-apps/cloud-basics.html).
 
 ***
-## <a name="step-8"></a>Step 8:  Flink Basics
-Kafka topics and schemas are always in sync with our Flink cluster. Any topic created in Kafka is visible directly as a table in Flink, and any table created in Flink is visible as a topic in Kafka. Effectively, Flink provides a SQL interface on top of Confluent Cloud.
 
-Following mappings exist:
-| Kafka          | Flink     | 
-| ------------   | --------- |
-| Environment    | Catalog   | 
-| Cluster        | Database  |
-| Topic + Schema | Table     |
-
-1. Familiarize with **Flink SQL** Basics.
-```sql
-SHOW CATALOGS;
-```
-
-```
-SHOW DATABASES;
-```
-
-```sql
-SHOW TABLES;
-```
-<div align="center">
-    <img src="images/show-tables.png" width=75% height=75%>
-</div>
-
-Understand how the table `shoe_products` was created:
-
-```sql
-SHOW CREATE TABLE shoe_products;
-```
-
-<div align="center">
-    <img src="images/show-table-shoe_products.png" width=75% height=75%>
-</div>
-
-You can find more information about all DDL Statements [here.](https://docs.confluent.io/cloud/current/flink/reference/statements/overview.html)
-
-Let us first check the table schema for our `shoe_products` catalog. This should be the same as the topic schema in Schema Registry.
-```sql
-DESCRIBE shoe_products;
-```
-
-2. Let's check if any product records exist in the table.
-```sql
-SELECT * FROM shoe_products;
-```
-
-3. Check if the `shoe_customers` schema  exists. 
-```sql
-DESCRIBE shoe_customers;
-```
-
-
-***
-## <a name="step-8"></a>Step 9: Stream Processing with Flink
+## <a name="step-8"></a>Step 8: Stream Processing with Flink
 
 Now that you have data flowing through Confluent, you can now easily build stream processing applications using flink. You are able to continuously transform, enrich, join, and aggregate your data using simple SQL syntax. You can gain value from your data directly from Confluent in real-time. Also, flink is a fully managed service within Confluent Cloud with a 99.9% uptime SLA. You can now focus on developing services and building your data pipeline while letting Confluent manage your resources for you.
 
