@@ -69,95 +69,83 @@ This workshop is perfect for those looking to build the foundation for your data
 
 ## <a name="step-2"></a>Create an Environment and Cluster
 
-An environment contains clusters and its deployed components such as Apache Flink, Connectors, ksqlDB, and Schema Registry. You have the ability to create different environments based on your company's requirements. For example, you can use environments to separate Development/Testing, Pre-Production, and Production clusters. 
+An environment contains clusters and its deployed components such as Apache Flink, Connectors, ksqlDB, and Schema Registry. You have the ability to create different environments based on your company's requirements. For example, you can use environments to separate Development/Testing, Pre-Production, and Production clusters.
 
-1. Click **+ Add Environment**. Specify an **Environment Name** and Click **Create**. 
+1. Click the **+ Add cloud environment** button and a modal will appear.
+2. Enter an **Environment Name**, like `stream-processing-workshop`.
+3. Select **Essentials** under *Stream Governance package* and click **Create**.
 
->**Note:** There is a *default* environment ready in your account upon account creation. You can use this *default* environment for the purpose of this workshop if you do not wish to create an additional environment.
-
-<div align="center" padding=25px>
-    <img src="images/environment.png" width=50% height=50%>
-</div>
-
-2. Select **Essentials** for Stream Governance Packages, click **Begin configuration**.
+> [!Note]
+> There is a *default* environment ready in your account upon account creation. You can use this *default* environment for the purpose of this workshop if you do not wish to create an additional environment.
 
 <div align="center" padding=25px>
-    <img src="images/stream-governance-1.png" width=50% height=50%>
+    <img src="images/create-environment.png" width=50% height=50%>
 </div>
 
-3. Select **AWS Sydney Region** for Stream Governance Essentials, click **Continue**.
+4. Next, you can start creating a cluster by entering in a name (e.g. `flink-cluster`)
+5. Select the `Basic` cluster type
+6. Choose `Google Cloud` as your provider
+7. Select `Las Vegas (us-west4`) as the region **Create Cluster**.
+8. Keep the default selections for *Uptime SLA*, *Networking*, and *Encryption*
 
 <div align="center" padding=25px>
-    <img src="images/stream-governance-2.png" width=50% height=50%>
+    <img src="images/create-cluster-updated.png" width=50% height=50%>
 </div>
 
-4. Now that you have an environment, click **Create Cluster**. 
+9. Click **Launch Cluster**.
 
-> **Note:** Confluent Cloud clusters are available in 3 types: Basic, Standard, and Dedicated. Basic is intended for development use cases so you will use that for the workshop. Basic clusters only support single zone availability. Standard and Dedicated clusters are intended for production use and support Multi-zone deployments. If you are interested in learning more about the different types of clusters and their associated features and limits, refer to this [documentation](https://docs.confluent.io/current/cloud/clusters/cluster-types.html).
-
-5. Chose the **Basic** cluster type. 
-
-<div align="center" padding=25px>
-    <img src="images/cluster-type.png" width=50% height=50%>
-</div>
-
-6. Click **Begin Configuration**. 
-7. Choose your preferred Cloud Provider (AWS, GCP, or Azure), region, and availability zone. 
-8. Specify a **Cluster Name**. For the purpose of this lab, any name will work here. 
-
-<div align="center" padding=25px>
-    <img src="images/create-cluster.png" width=50% height=50%>
-</div>
-
-9. View the associated *Configuration & Cost*, *Usage Limits*, and *Uptime SLA* information before launching. 
-10. Click **Launch Cluster**. 
-
-***
-
+> [!Note]
+> **Confluent Cluster Types**
+>
+> Confluent Cloud clusters are available in 5 types: *Basic*, *Standard*, *Enterprise*, *Dedicated*, and *Freight*. `Basic` is intended for development use cases so you will use that for this workshop.
+>
+> If you are interested in learning more about the different types of clusters and their associated features and limits, refer to this [documentation](https://docs.confluent.io/current/cloud/clusters/cluster-types.html).
 
 ## <a name="step-3"></a>Create a Flink Compute Pool
 
-1. On the navigation menu, select **Flink** and click **Create Compute Pool**.
+1. Click on the link with your environment name in the navigation bookmark links at the top of your screen.
+2. Select the **Flink** tab and click **Create Compute Pool**.
 
 <div align="center" padding=25px>
-    <img src="images/create-flink-pool-1.png" width=50% height=50%>
+    <img src="images/create-flink-pool-updated-1.png" width=50% height=50%>
 </div>
 
-2. Select **Region** and then **Continue**.
+3. Select `Las Vegas (us-west4)` as the **Region** and then click **Continue**.
+
 <div align="center" padding=25px>
-    <img src="images/create-flink-pool-2.png" width=50% height=50%>
+    <img src="images/create-flink-pool-updated-2.png" width=50% height=50%>
 </div>
 
-3. Name you Pool Name and set the capacity units (CFUs) to **5**. Click **Finish**.
+4. Enter a name for your pool (e.g. `flink-workshop-pool`) and click **Create**.
 
 <div align="center" padding=25px>
-    <img src="images/create-flink-pool-3.png" width=50% height=50%>
+    <img src="images/create-flink-pool-updated-3.png" width=50% height=50%>
 </div>
 
-> **Note:** The capacity of a compute pool is measured in CFUs. Compute pools expand and shrink automatically based on the resources required by the statements using them. A compute pool without any running statements scale down to zero. The maximum size of a compute pool is configured during creation. 
+> [!Note]
+> **Compute Pool Capacity**
+>
+> The capacity of a compute pool is measured in CFUs. Compute pools expand and shrink automatically based on the resources required by the statements using them.
+>
+> A compute pool without any running statements scale down to zero. The maximum size of a compute pool is configured during creation.
 
-4. Flink Compute pools will be ready shortly. You can click **Open SQL workspace** when the pool is ready to use.
+5. Flink Compute pools will be ready shortly. You can click **Open SQL workspace** button when the pool is ready to use.
 
 <div align="center" padding=25px>
-    <img src="images/create-flink-pool-4.png" width=50% height=50%>
+    <img src="images/create-flink-pool-updated-4.png" width=50% height=50%>
 </div>
 
-5. Change your workspace name by clicking **settings button**. Click **Save changes** after you update the workspace name.
+6. Change your workspace name by clicking the **settings icon** in the top right of your screen and entering a new name, something like `flink-workspace`. Click **Save changes** after you have finished.
 
 <div align="center" padding=25px>
-    <img src="images/flink-workspace-1.png" width=50% height=50%>
+    <img src="images/flink-workspace-updated-1.png" width=50% height=50%>
 </div>
 
-6. Set the default Catalog as your environment name.
+7. There are two *Use* labels above the Flink query window. For the left-most *Use* label, click the dropdown and select your new environment.
+8. For the right-most *Use* label, click the dropdown and select your cluster.
 
 <div align="center" padding=25px>
-    <img src="images/flink-workspace-2.png" width=50% height=50%>
-</div>
-
-7. Set the default Database as your cluster name.
-
-<div align="center" padding=25px>
-    <img src="images/flink-workspace-3.png" width=50% height=50%>
+    <img src="images/flink-workspace-updated-2.png" width=50% height=50%>
 </div>
 
 ***
