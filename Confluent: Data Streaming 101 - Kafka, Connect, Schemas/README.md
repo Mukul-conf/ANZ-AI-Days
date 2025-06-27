@@ -104,10 +104,10 @@ An environment contains clusters and its deployed components such as Apache Flin
     <img src="images/create-flink-pool-updated-1.png" width=50% height=50%>
 </div>
 
-3. Select `Mumbai` as the **Region** and then click **Continue**.
+3. Select `AWS` as cloud and `Mumbai` as the **Region** and then click **Continue**.
 
 <div align="center" padding=25px>
-    <img src="images/create-flink-pool-updated-2.png" width=50% height=50%>
+    <img src="images/flink-region.png" width=50% height=50%>
 </div>
 
 4. Enter a name for your pool (e.g. `flink-workshop-pool`) and click **Create**.
