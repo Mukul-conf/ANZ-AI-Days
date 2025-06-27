@@ -125,21 +125,11 @@ An environment contains clusters and its deployed components such as Apache Flin
 
 5. Flink Compute pools will be ready shortly. You can click **Open SQL workspace** button when the pool is ready to use.
 
-<div align="center" padding=25px>
-    <img src="images/create-flink-pool-updated-4.png" width=50% height=50%>
-</div>
-
-6. Change your workspace name by clicking the **settings icon** in the top right of your screen and entering a new name, something like `flink-workspace`. Click **Save changes** after you have finished.
+6. There are two *Use* labels above the Flink query window. For the left-most *Use* label, click the dropdown and select your new environment.
+7. For the right-most *Use* label, click the dropdown and select your cluster.
 
 <div align="center" padding=25px>
-    <img src="images/flink-workspace-updated-1.png" width=50% height=50%>
-</div>
-
-7. There are two *Use* labels above the Flink query window. For the left-most *Use* label, click the dropdown and select your new environment.
-8. For the right-most *Use* label, click the dropdown and select your cluster.
-
-<div align="center" padding=25px>
-    <img src="images/flink-workspace-updated-2.png" width=50% height=50%>
+    <img src="images/flink-catalog.png" width=50% height=50%>
 </div>
 
 ***
