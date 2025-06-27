@@ -338,7 +338,7 @@ DESCRIBE shoe_customers;
 
 
 ***
-## <a name="step-8"></a>Step 8: Create Streams and Tables using flink
+## <a name="step-8"></a>Step 9: Stream Processing with Flink
 
 Now that you have data flowing through Confluent, you can now easily build stream processing applications using flink. You are able to continuously transform, enrich, join, and aggregate your data using simple SQL syntax. You can gain value from your data directly from Confluent in real-time. Also, flink is a fully managed service within Confluent Cloud with a 99.9% uptime SLA. You can now focus on developing services and building your data pipeline while letting Confluent manage your resources for you.
 
