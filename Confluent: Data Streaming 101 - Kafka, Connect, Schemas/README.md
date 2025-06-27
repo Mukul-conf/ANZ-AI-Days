@@ -138,12 +138,12 @@ An environment contains clusters and its deployed components such as Apache Flin
 1. On the navigation menu, select **Topics** and click **Create Topic**.
     > **Note:** Refresh the page if your cluster is still spinning up.
 
-1. Enter **Shoe_Customers** as the Topic name and **3** as the Number of partitions
+1. Enter **shoe_customers** as the Topic name and **3** as the Number of partitions
     > **Note:** Topics have many configurable parameters that dictate how Confluent handles messages. A complete list of those configurations for Confluent Cloud can be found [here](https://docs.confluent.io/cloud/current/using/broker-config.html).  If you’re interested in viewing the default configurations, you can view them in the *Topic Summary* on the right side.
 
 1. Click **Create with defaults**.
 
-1. Repeat the steps for two other topics **Shoe_Orders** and **Shoe_Products**.
+1. Repeat the steps for two other topics **shoe_orders** and **shoe_products**.
 
 ***
 
@@ -650,7 +650,7 @@ Deleting the resources you created during this workshop will prevent you from in
 
 2. Delete the Redshift sink connector by navigating to **Connectors** in the navigation panel, clicking your connector name, then clicking the trash can icon in the upper right and entering the connector name to confirm the deletion.
 
-3. Delete the mongoDB Atlas source connector by navigating to **Connectors** under Cluster in the navigation panel, clicking your connector name, then clicking the trash can icon in the upper right and entering the connector name to confirm the deletion.
+3. Delete the Datagen source connectors by navigating to **Connectors** under Cluster in the navigation panel, clicking your connector name, then clicking the trash can icon in the upper right and entering the connector name to confirm the deletion.
 
 4. Delete the Cluster by going to the **Settings** tab and then selecting **Delete cluster**
 
