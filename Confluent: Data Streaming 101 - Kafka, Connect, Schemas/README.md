@@ -55,35 +55,62 @@ This workshop is perfect for those looking to build the foundation for your data
 
 ***
 
-## <a name="step-1"></a>Step 1: Log Into Confluent Cloud
+## <a name="step-1"></a>Log into Confluent Cloud
 
-1. First, access Confluent Cloud sign-in by navigating [here](https://confluent.cloud).
-1. When provided with the *username* and *password* prompts, fill in your credentials.
-    > **Note:** If you're logging in for the first time you will see a wizard that will walk you through the some tutorials. Minimize this as you will walk through these steps in this guide.
+1. Log into [Confluent Cloud](https://confluent.cloud) and enter your email and password.
+
+<div align="center" padding=25px>
+    <img src="images/login.png" width=50% height=50%>
+</div>
+
+2. If you are logging in for the first time, you will see a self-guided wizard that walks you through spinning up a cluster. Please minimize this as you will walk through those steps in this workshop. 
 
 ***
 
-## <a name="step-2"></a>Step 2: Create an Environment and Cluster
+## <a name="step-2"></a>Create an Environment and Cluster
 
-An environment contains Confluent clusters and its deployed components such as Connect, flink, and Schema Registry. You have the ability to create different environments based on your company's requirements. Confluent has seen companies use environments to separate Development/Testing, Pre-Production, and Production clusters.
+An environment contains clusters and its deployed components such as Apache Flink, Connectors, ksqlDB, and Schema Registry. You have the ability to create different environments based on your company's requirements. For example, you can use environments to separate Development/Testing, Pre-Production, and Production clusters. 
 
-1. Click **+ Add environment**.
-    > **Note:** There is a *default* environment ready in your account upon account creation. You can use this *default* environment for the purpose of this workshop if you do not wish to create an additional environment.
+1. Click **+ Add Environment**. Specify an **Environment Name** and Click **Create**. 
 
-    * Specify a meaningful `name` for your environment and then click **Create**.
-        > **Note:** It will take a few minutes to assign the resources to make this new environment available for use.
+>**Note:** There is a *default* environment ready in your account upon account creation. You can use this *default* environment for the purpose of this workshop if you do not wish to create an additional environment.
 
-1. Now that you have an environment, let's create a cluster. Select **Create Cluster**.
-    > **Note**: Confluent Cloud clusters are available in 3 types: **Basic**, **Standard**, and **Dedicated**. Basic is intended for development use cases so you should use that for this lab. Basic clusters only support single zone availability. Standard and Dedicated clusters are intended for production use and support Multi-zone deployments. If you’re interested in learning more about the different types of clusters and their associated features and limits, refer to this [documentation](https://docs.confluent.io/current/cloud/clusters/cluster-types.html).
+<div align="center" padding=25px>
+    <img src="images/environment.png" width=50% height=50%>
+</div>
 
-    * Choose the **Basic** cluster type.
+2. Select **Essentials** for Stream Governance Packages, click **Begin configuration**.
 
-    * Click **Begin Configuration**.
+<div align="center" padding=25px>
+    <img src="images/stream-governance-1.png" width=50% height=50%>
+</div>
 
-    * Choose **AWS** as your Cloud Provider and your preferred Region.
-        > **Note:** AWS is required as your Cloud Provider since you will be utilizing the fully-managed Redshift sink connector for this workshop
+3. Select **AWS Sydney Region** for Stream Governance Essentials, click **Continue**.
 
-    * Specify a meaningful **Cluster Name** and then review the associated *Configuration & Cost*, *Usage Limits*, and *Uptime SLA* before clicking **Launch Cluster**.
+<div align="center" padding=25px>
+    <img src="images/stream-governance-2.png" width=50% height=50%>
+</div>
+
+4. Now that you have an environment, click **Create Cluster**. 
+
+> **Note:** Confluent Cloud clusters are available in 3 types: Basic, Standard, and Dedicated. Basic is intended for development use cases so you will use that for the workshop. Basic clusters only support single zone availability. Standard and Dedicated clusters are intended for production use and support Multi-zone deployments. If you are interested in learning more about the different types of clusters and their associated features and limits, refer to this [documentation](https://docs.confluent.io/current/cloud/clusters/cluster-types.html).
+
+5. Chose the **Basic** cluster type. 
+
+<div align="center" padding=25px>
+    <img src="images/cluster-type.png" width=50% height=50%>
+</div>
+
+6. Click **Begin Configuration**. 
+7. Choose your preferred Cloud Provider (AWS, GCP, or Azure), region, and availability zone. 
+8. Specify a **Cluster Name**. For the purpose of this lab, any name will work here. 
+
+<div align="center" padding=25px>
+    <img src="images/create-cluster.png" width=50% height=50%>
+</div>
+
+9. View the associated *Configuration & Cost*, *Usage Limits*, and *Uptime SLA* information before launching. 
+10. Click **Launch Cluster**. 
 
 ***
 
