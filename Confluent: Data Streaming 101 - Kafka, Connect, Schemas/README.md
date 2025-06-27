@@ -82,17 +82,11 @@ An environment contains clusters and its deployed components such as Apache Flin
     <img src="images/create-environment.png" width=50% height=50%>
 </div>
 
-4. Next, you can start creating a cluster by entering in a name (e.g. `flink-cluster`)
-5. Select the `Basic` cluster type
-6. Choose `Google Cloud` as your provider
-7. Select `Las Vegas (us-west4`) as the region **Create Cluster**.
-8. Keep the default selections for *Uptime SLA*, *Networking*, and *Encryption*
 
-<div align="center" padding=25px>
-    <img src="images/create-cluster-updated.png" width=50% height=50%>
-</div>
-
-9. Click **Launch Cluster**.
+4. Select the `Basic` cluster type
+5. Choose `AWS` as your provider
+6. Select `Mumbai` as the region and `Single Zone` as the availability and enter a cluster name as `Confluent101` and click on **Create Cluster**.
+7. Click **Launch Cluster**.
 
 > [!Note]
 > **Confluent Cluster Types**
