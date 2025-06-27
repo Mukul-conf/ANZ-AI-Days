@@ -60,7 +60,7 @@ This workshop is perfect for those looking to build the foundation for your data
 1. Log into [Confluent Cloud](https://confluent.cloud) and enter your email and password.
 
 <div align="center" padding=25px>
-    <img src="images/login.png" width=50% height=50%>
+    <img src="images/updated-login.png" width=50% height=50%>
 </div>
 
 2. If you are logging in for the first time, you will see a self-guided wizard that walks you through spinning up a cluster. Please minimize this as you will walk through those steps in this workshop. 
