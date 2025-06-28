@@ -15,7 +15,7 @@
 1. [Setup Datagen Connectors](#step-6)
 1. [Cloud Dashboard Walkthrough](#step-7)
 1. [Stream Processing with Flink](#step-8)
-1. [Connect Redshift sink to Confluent Cloud](#step-9)
+1. [(OPTIONAL) Connect Redshift sink to Confluent Cloud](#step-9)
 1. [Clean Up Resources](#step-10)
 1. [Confluent Resources and Further Testing](#confluent-resources-and-further-testing)
 
@@ -606,9 +606,9 @@ FROM shoe_promotions;
 
 ***
 
-## <a name="step-10"></a>Step 10: Connect Redshift sink to Confluent Cloud
+## <a name="step-10"></a> [OPTIONAL] Step 10: Connect Redshift sink to Confluent Cloud
 
-The next step is to sink data from Confluent Cloud into Redshift using the [fully-managed Redshift Sink connector](https://docs.confluent.io/cloud/current/connectors/cc-AWS-Redshift-sink.html). The connector will send real time data on promotions into Redshift.
+The next step is to sink data from Confluent Cloud into Redshift using the [fully-managed Redshift Sink connector](https://docs.confluent.io/cloud/current/connectors/cc-amazon-redshift-sink.html). The connector will send real time data on loyalty levels into Redshift.
 
 1. First, you will create the connector that will automatically create a Redshift table and populate that table with the data from the promotions topic within Confluent Cloud. From the Confluent Cloud UI, click on the Connectors tab on the navigation menu and select **+Add connector**. Search and click on the Redshift Sink icon.
 
@@ -618,15 +618,18 @@ The next step is to sink data from Confluent Cloud into Redshift using the [full
 
 | Setting                | Value                                   |
 |------------------------|-----------------------------------------|
-| `Topics`               | pksqlc-...ABC_PROMOTIONS                |
+| `Topics`               | shoe_loyalty_levels                |
 | `Name`                 | RedshiftSinkConnector                   |
+| `AWS Redshift domain`	 | redhisft_endpoint                     |
+|  `AWS Redshift port`	| 5439|
+|`Connection user`	|admin username|
+|`Connection password`|admin password|	
+|`Database name`	|dev(default)|
 | `Input message format` | Avro                                    |
-| `Kafka API Key`        | From step 6                             |
-| `Kafka API Secret`     | From step 6                             |
-| `AWS credentials file` | Upload_your_AWS_Credentials_file        |
-| `Project ID`           | your AWS Project ID                     |
-| `Dataset`              | your AWS Dataset Name                   |
+| `Kafka API Key`        | From step 5                             |
+| `Kafka API Secret`     | From step 5                             |
 | `Auto create tables`   | True                                    |
+|`Auto add columns` | True|	
 | `Tasks`                | 1                                       |
 
 </div>
@@ -637,7 +640,12 @@ The next step is to sink data from Confluent Cloud into Redshift using the [full
 
 5. This should return you to the main Connectors landing page. Wait for your newly created connector to change status from **Provisioning** to **Running**.
 
-6. Shortly after, the workshop instructor will switch over to the Redshift page within Google Console to show that a table matching the topic name you used when creating the Redshift connector in Confluent Cloud has been created within the **workshop** dataset.  Clicking the table name should open a Redshift editor for it:
+6. Shortly after, the workshop instructor will switch over to the Redshift page within AWS Console to show that a table matching the topic name you used when creating the Redshift connector in Confluent Cloud has been created within the **workshop** dataset.  Clicking the table name should open a Redshift editor for it. The output should look like the below picture.
+
+   
+<div align="center">
+    <img src="images/redshift.png" width=100% height=100%>
+</div>
 
 
 
