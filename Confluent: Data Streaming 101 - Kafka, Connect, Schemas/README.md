@@ -303,7 +303,7 @@ SHOW TABLES;
     <img src="images/show-tables.png" width=75% height=75%>
 </div>
 
-1. Understand how the table `shoe_products` was created:
+2. Understand how the table `shoe_products` was created:
 
 ```sql
 SHOW CREATE TABLE shoe_products;
@@ -313,10 +313,11 @@ SHOW CREATE TABLE shoe_products;
     <img src="images/show-table-shoe_products.png" width=75% height=75%>
 </div>
 
-1. Let's check if any product records exist in the table.
+3. Let's check if any product records exist in the table.
 ```sql
 SELECT * FROM shoe_products;
 ```
+***
 
 Windows are central to processing infinite streams. Windows split the stream into “buckets” of finite size, over which you can apply computations. This document focuses on how windowing is performed in Confluent Cloud for Apache Flink and how you can benefit from windowed functions.
 
@@ -344,7 +345,7 @@ GROUP BY window_end;
 
 > **Note:** Check this [link](https://docs.confluent.io/cloud/current/flink/reference/queries/window-tvf.html) for the detailed information about Flink Window aggregations.
 
-
+***
 A primary key constraint is a hint for Flink SQL to leverage for optimizations which specifies that a column or a set of columns in a table or a view are unique and they do not contain null. No columns in a primary key can be nullable. A primary key uniquely identifies a row in a table.
 For more details please check this [link.](https://docs.confluent.io/cloud/current/flink/reference/statements/create-table.html#primary-key-constraint)
 
@@ -385,7 +386,7 @@ INSERT INTO shoe_customers_keyed
 ```
 
 
-7. Product Catalog Table also requires unique rows for each item.
+4. Product Catalog Table also requires unique rows for each item.
 Create a new table in order to have the latest information of each product. 
 It is useful when you need to know the latest price of the product for analytic purposes or you need to populate latest product information while joining with other tables.
 ```sql
@@ -399,7 +400,7 @@ CREATE TABLE shoe_products_keyed(
 ) DISTRIBUTED BY (product_id) INTO 3 BUCKETS;
 ```
 
-8. Create a new Flink job to copy product data from the original table to the new table. 
+5. Create a new Flink job to copy product data from the original table to the new table. 
 ```sql
 INSERT INTO shoe_products_keyed
   SELECT id,
@@ -417,7 +418,7 @@ By default, the order of joins is not optimized. Tables are joined in the order 
 You can tweak the performance of your join queries, by listing the tables with the lowest update frequency first and the tables with the highest update frequency last. Make sure to specify tables in an order that doesn’t yield a cross join (Cartesian product), which aren’t supported and would cause a query to fail.
 For more details please check this [link.](https://docs.confluent.io/cloud/current/flink/reference/queries/joins.html)
 
-5. Enrich Order information with Customer and Product Table.
+6. Enrich Order information with Customer and Product Table.
    Create a new table for enriched order information.
 ```sql
 CREATE TABLE shoe_orders_enriched_customer_product(
@@ -472,7 +473,7 @@ SELECT * FROM shoe_orders_enriched_customer_product;
     <img src="images/flink-join-orders-enrichment.gif" width=75% height=75%>
 </div>
 
-
+***
 Customer Loyalty Level Calculation
 1. Calculate loyalty levels of each customer
 ```sql
