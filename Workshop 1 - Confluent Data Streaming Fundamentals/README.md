@@ -56,7 +56,7 @@ This workshop is perfect for those looking to build the foundation for your data
 
 ## <a name="step-1"></a>Log into Confluent Cloud
 
-1. Log into [Confluent Cloud](https://confluent.cloud) and enter your email and password.
+1. Log into [Confluent Cloud]([https://confluent.cloud](https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.fm-apac_cd.anz-ai-game-day_id.701Uz00000ea25wIAA&utm_medium=workshop)) and enter your email and password.
 
 <div align="center" padding=25px>
     <img src="images/updated-login.png" width=50% height=50%>
