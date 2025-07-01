@@ -27,7 +27,7 @@
     <img src="images/Archi.png" width=75% height=75%>
 </div>
 
-This workshop will be utilizing confluent Datagen, Redshift, flink instances that are being managed by Confluent. You will not be able to access these instances outside of the workshop time.  To test Flink and connectors outside of the workshop you can take a look at the flink [quickstart]([https://docs.confluent.io/cloud/current/get-started/ksql.html](https://docs.confluent.io/cloud/current/flink/get-started/quick-start-cloud-console.html)) and fully-managed connectors [page](https://docs.confluent.io/cloud/current/connectors/index.html#kafka-connect-cloud).
+This workshop will be utilizing confluent Datagen, Redshift, flink instances that are being managed by Confluent. You will not be able to access these instances outside of the workshop time.  To test Flink and connectors outside of the workshop you can take a look at the flink [quickstart]((https://docs.confluent.io/cloud/current/get-started/ksql.html)(https://docs.confluent.io/cloud/current/flink/get-started/quick-start-cloud-console.html)) and fully-managed connectors [page](https://docs.confluent.io/cloud/current/connectors/index.html#kafka-connect-cloud).
 ***
 
 ## **Prerequisites**
@@ -56,7 +56,7 @@ This workshop is perfect for those looking to build the foundation for your data
 
 ## <a name="step-1"></a>Log into Confluent Cloud
 
-1. Log into [Confluent Cloud]([https://confluent.cloud](https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.fm-apac_cd.anz-ai-game-day_id.701Uz00000ea25wIAA&utm_medium=workshop)) and enter your email and password.
+1. Log into [Confluent Cloud]((https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.fm-apac_cd.anz-ai-game-day_id.701Uz00000ea25wIAA&utm_medium=workshop)) and enter your email and password.
 
 <div align="center" padding=25px>
     <img src="images/updated-login.png" width=50% height=50%>
