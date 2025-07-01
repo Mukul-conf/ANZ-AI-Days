@@ -84,7 +84,7 @@ An environment contains clusters and its deployed components such as Apache Flin
 
 4. Select the `Basic` cluster type
 5. Choose `AWS` as your provider
-6. Select `Mumbai` as the region and `Single Zone` as the availability and enter a cluster name as `Confluent101` and click on **Create Cluster**.
+6. Select `N. Virginia (us-east-1)` as the region and `Single Zone` as the availability and enter a cluster name as `Confluent101` and click on **Create Cluster**.
 7. Click **Launch Cluster**.
 
 > [!Note]
@@ -103,7 +103,7 @@ An environment contains clusters and its deployed components such as Apache Flin
     <img src="images/create-flink-pool-updated-1.png" width=50% height=50%>
 </div>
 
-3. Select `AWS` as cloud and `Mumbai` as the **Region** and then click **Continue**.
+3. Select `AWS` as cloud and `N. Virginia (us-east-1)` as the **Region** and then click **Continue**.
 
 <div align="center" padding=25px>
     <img src="images/flink-region.png" width=50% height=50%>
