@@ -194,21 +194,16 @@ The next step is to produce sample data using the Datagen Source connector. You 
     <img src="images/datagen-2.png" width=75% height=75%>
 </div>
 
-3. Click on **Show advanced configurations** and complete the necessary fields and click **Continue**.
 
-<div align="center" padding=25px>
-    <img src="images/datagen-3.png" width=75% height=75%>
-</div>
-   
-4. Before launching the connector, you should see something similar to the following. If everything looks similar, select **Launch**. 
+3. Before launching the connector, you should see something similar to the following. If everything looks similar, select **Launch**. 
 
 <div align="center" padding=25px>
     <img src="images/datagen-4.png" width=50% height=50%>
 </div>
 
-5. Next, create the second connector that will send data to **shoe_products**. Click on **+ Add Connector** and then the **datagen Source** icon again. 
+4. Next, create the second connector that will send data to **shoe_products**. Click on **+ Add Connector** and then the **datagen Source** icon again. 
 
-6. Enter the following configuration details. The remaining fields can be left blank. 
+5. Enter the following configuration details. The remaining fields can be left blank. 
 
 <div align="center">
 
@@ -220,17 +215,16 @@ The next step is to produce sample data using the Datagen Source connector. You 
 | topic                              | shoe_products                |
 | output message format              | AVRO                         |
 | quickstart                         | Shoes                        |
-| max interval between messages (ms) | 1000                         |
 | tasks                              | 1                            |
 </div>
 
 <br> 
 
-7. Review the output again and then select **Launch**.
+6. Review the output again and then select **Launch**.
 
-8. Next, create the second connector that will send data to **shoe_orders**. Click on **+ Add Connector** and then the **datagen Source** icon again. 
+7. Next, create the second connector that will send data to **shoe_orders**. Click on **+ Add Connector** and then the **datagen Source** icon again. 
 
-9. Enter the following configuration details. The remaining fields can be left blank. 
+8. Enter the following configuration details. The remaining fields can be left blank. 
 
 <div align="center">
 
@@ -242,7 +236,6 @@ The next step is to produce sample data using the Datagen Source connector. You 
 | topic                              | shoe_orders                  |
 | output message format              | AVRO                         |
 | quickstart                         | Shoe orders                  |
-| max interval between messages (ms) | 1000                         |
 | tasks                              | 1                            |
 </div>
 
