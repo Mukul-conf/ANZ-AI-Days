@@ -184,7 +184,6 @@ The next step is to produce sample data using the Datagen Source connector. You 
 | topic                              | shoe_customers               |
 | output message format              | AVRO                         |
 | quickstart                         | Shoe customers               |
-| max interval between messages (ms) | 1000                         |
 | tasks                              | 1                            |
 </div>
 
