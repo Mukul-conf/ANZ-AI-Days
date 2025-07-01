@@ -112,7 +112,7 @@ An environment contains clusters and its deployed components such as Apache Flin
 4. Enter a name for your pool (e.g. `flink-workshop-pool`) and click **Create**.
 
 <div align="center" padding=25px>
-    <img src="images/flink-pool1.png" width=50% height=50%>
+    <img src="images/flink-pool.png" width=50% height=50%>
 </div>
 
 > [!Note]
@@ -128,7 +128,7 @@ An environment contains clusters and its deployed components such as Apache Flin
 7. For the right-most *Use* label, click the dropdown and select your cluster.
 
 <div align="center" padding=25px>
-    <img src="images/flink-catalog.png" width=50% height=50%>
+    <img src="images/flink-catalog1.png" width=50% height=50%>
 </div>
 
 ***
