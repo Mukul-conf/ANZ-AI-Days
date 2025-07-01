@@ -36,7 +36,7 @@ This workshop will be utilizing confluent Datagen, Redshift, flink instances tha
     * Sign-up for a Confluent Cloud account [here](https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.fm-apac_cd.anz-ai-game-day_id.701Uz00000ea25wIAA&utm_medium=workshop).
     * Once you have signed up and logged in, click on the menu icon at the upper right hand corner, click on “Billing & payment”, then enter the PROMOCODE provided during the workshop.
 
-    > **Note:** You will create resources during this workshop that will incur costs. When you sign up for a Confluent Cloud account, you will get free credits to use in Confluent Cloud. This will cover the cost of resources created during the workshop. More details on the specifics can be found [here](https://www.confluent.io/confluent-cloud/tryfree/).
+    > **Note:** You will create resources during this workshop that will incur costs. When you sign up for a Confluent Cloud account, you will get free credits to use in Confluent Cloud. This will cover the cost of resources created during the workshop. More details on the specifics can be found [here](https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.fm-apac_cd.anz-ai-game-day_id.701Uz00000ea25wIAA&utm_medium=workshop).
 
 <div align="center" padding=25px>
     <img src="images/billing.png" width=75% height=75%>
