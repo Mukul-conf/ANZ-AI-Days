@@ -541,64 +541,50 @@ LATERAL TABLE(
 
 ## <a name="step-10"></a> Embedding Generation using Flink & Bedrock (Optional)
 
-The next step is to generate embeddings using Titan Model in Bedrock.
+The next step is to generate embeddings using Titan Model in AWS Bedrock.
 
+1. First, navigate to AWS Bedrock Model Catalog and enable access to the Titan Model.
+   
+<div align="center" padding=25px>
+    <img src="images/elasticsearch-connector.png" width=75% height=75%>
+</div>
 
-1. First, navigate to aws and enable access to the Titan Model.
-2. Get AWS
-3. Navigate to Environments -> Integrations -> Connections and create a Bedrock integration. 
-4. Click on **Add Connector**
-5. Now search for elastic 
+2. Get AWS credentials.
 
 <div align="center" padding=25px>
     <img src="images/elasticsearch-connector.png" width=75% height=75%>
 </div>
 
-5. Enter the following configuration details in the setup wizard. The remaining fields can be left blank or default.
-<div align="center">
-
-| Setting                            | Value                                               |
-|------------------------------------|-----------------------------------------------------|
-| Topic names                        | customer_segments_table , top_products_every_minute |
-| API Key                            | [*from step 5*](#step-5)                            |
-| API Secret                         | [*from step 5*](#step-5)                            |
-| Connection URI                     | < Elasticsearch Server URL >                        |
-| Connection user                    | < Elasticsearch Username >                          |
-| Connection password                | < Elasticsearch Password >                          |
-| Input kakfa record value format    | AVRO                                                |
-| Key ignore                         | true                                                |
-| Tasks                              | 1                                                   |
-| Name                               | ElasticsearchSinkConnector_monitoring               |
-> **Note:** It may take a few moments for the connectors to launch. Check the status and when both are ready, the status should show *running*. <br>      
+3. Navigate to Environments -> Integrations -> Connections and create a Bedrock integration. 
+   Endpoint: https://bedrock-runtime.us-east-1.amazonaws.com/model/amazon.titan-embed-text-v2:0/invoke
+ 
+<div align="center" padding=25px>
+    <img src="images/bedrock-titan.png" width=75% height=75%>
 </div>
+4. Validate if the connection is created successfully.
 
-<br>
+5. Use the same connection to create a model in flink.
 
+```sql
+CREATE MODEL RECOMMEND_BEDROCK_TITAN
+INPUT (`text` VARCHAR(2147483647)) 
+OUTPUT (`output` VARCHAR(2147483647)) 
+WITH ( 
+    'bedrock.connection' = 'bedrock-connection-titan', 
+    'bedrock.input_format' = 'Generate a personalized product recommendation message',
+    'provider' = 'bedrock', 
+    'task' = 'embedding' 
+    );
+```
 
+8. Use the bedrock model to get shoes/brands recommendation based upon the input gathered in the final topic.
 
-6. Review your selections and then click **Launch**.
+```sql
+SELECT * from text_input, LATERAL TABLE(ML_PREDICT('RECOMMEND_BEDROCK_TITAN', input));
 
-7. Next step is to create Elasticsearch data-views and kibana-dashboard. You can use [`elasticsearch.ndjson`](elasticsearch.ndjson) to import the dashbaord.
+```
+<div align="center"><img src="images/final-message-embeddings.png" width=75% height=75%></div>
 
-8. Now Visit Elasticsearch UI and select Stack Management page under Management from the hamburger menu.
-<div align="center" padding=25px><img src="images/elasticsearch-1.png" width=75% height=75%></div>
-
-9. Proceed to Saved Objects page under kibana section
-<div align="center" padding=25px><img src="images/elasticsearch-2.png" width=75% height=75%></div>
-
-10. Import dashboard template from [`elasticsearch.ndjson`](elasticsearch.ndjson) file.
-
-<div align="center" padding=25px><img src="images/elasticsearch-3.png" width=75% height=75%></div>
-<br>
-<div align="center" padding=25px><img src="images/elasticsearch-4.png" width=75% height=75%></div>
-<br>
-<div align="center" padding=25px><img src="images/elasticsearch-5.png" width=75% height=75%></div>
-
-11. Once dashboard imported successfully , visit Dashboards page under Analytics section.
-
-<div align="center" padding=25px><img src="images/elasticsearch-6.png" width=75% height=75%></div>
-<br>
-<div align="center" padding=25px><img src="images/elasticsearch-7.png" width=90% height=90%></div>
 
 ## <a name="step-11"></a>Clean Up Resources
 
