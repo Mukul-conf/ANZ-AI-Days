@@ -480,22 +480,22 @@ CREATE TABLE personalized_recommendation_input AS
     <img src="images/integrations-connection.png" width=75% height=75%>
 </div>
 
-4. Copy the AWS Credentails from AWS dashboard.
+4. Copy the AWS Credentials from the AWS dashboard.
 
 <div align="center" padding=25px>
     <img src="images/aws-creds.png" width=75% height=75%>
 </div>
 
->**Note:** Alternatively you can create a new AWS user and assign AmazonBedrockFullAccess policy and generate the Key and secret for this user. <br> <div align="center"><img src="images/aws-bedrock-creds.png" width=75% height=75%></div>
+>**Note:** Alternatively, you can create a new AWS user and assign the AmazonBedrockFullAccess policy and generate the Key and secret for this user. <br> <div align="center"><img src="images/aws-bedrock-creds.png" width=75% height=75%></div>
 
-5. Select Bedrock, add above aws credentials and bedrock endpoint url:
+5. Select Bedrock, add above AWS credentials and Bedrock endpoint URL:
     https://bedrock-runtime.us-east-1.amazonaws.com/model/meta.llama3-8b-instruct-v1:0/invoke
     
 <div align="center" padding=25px>
     <img src="images/bedrock-int.png" width=75% height=75%>
 </div>
 
-6. After creating the connection validate if the integration is created sucessfully.
+6. After creating the connection, validate if the integration is created successfully.
 
 <div align="center" padding=25px>
     <img src="images/bedrock-int-validate.png" width=75% height=75%>
@@ -546,14 +546,16 @@ The next step is to generate embeddings using Titan Model in AWS Bedrock.
 1. First, navigate to AWS Bedrock Model Catalog and enable access to the Titan Model.
    
 <div align="center" padding=25px>
-    <img src="images/elasticsearch-connector.png" width=75% height=75%>
+    <img src="images/aws-bedrock-titan.png" width=75% height=75%>
 </div>
 
-2. Get AWS credentials.
+2. Copy the AWS Credentials from the AWS dashboard.
 
 <div align="center" padding=25px>
-    <img src="images/elasticsearch-connector.png" width=75% height=75%>
+    <img src="images/aws-creds.png" width=75% height=75%>
 </div>
+
+>**Note:** Alternatively, you can create a new AWS user and assign the AmazonBedrockFullAccess policy and generate the Key and secret for this user. <br> <div align="center"><img src="images/aws-bedrock-creds.png" width=75% height=75%></div>
 
 3. Navigate to Environments -> Integrations -> Connections and create a Bedrock integration. 
    Endpoint: https://bedrock-runtime.us-east-1.amazonaws.com/model/amazon.titan-embed-text-v2:0/invoke
@@ -561,9 +563,14 @@ The next step is to generate embeddings using Titan Model in AWS Bedrock.
 <div align="center" padding=25px>
     <img src="images/bedrock-titan.png" width=75% height=75%>
 </div>
+
 4. Validate if the connection is created successfully.
 
-5. Use the same connection to create a model in flink.
+<div align="center" padding=25px>
+    <img src="images/aws-titan-validate.png" width=75% height=75%>
+</div>
+
+5. Use the same connection to create a model in Flink.
 
 ```sql
 CREATE MODEL RECOMMEND_BEDROCK_TITAN
