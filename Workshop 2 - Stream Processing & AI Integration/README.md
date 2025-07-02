@@ -460,13 +460,21 @@ CREATE TABLE personalized_recommendation_input AS
 
 ## <a name="step-9"></a>Consume final topic and recommend shoes to customers with aws bedrock
 
-1. Use confluent UI to create connection with bedrock. Navigate to integrations under environment.
+1. Enable access to AWS Bedrock LLama 3 8B Instruct model.
+   Navigate to Amazon Bedrock, Model Catalog, Filter by Meta and search for LLama 3 8B Instruct.
+   
+<div align="center" padding=25px>
+    <img src="images/bedrock-Llama-access.png" width=75% height=75%>
+</div> 
+
+ 
+2. Use confluent UI to create connection with bedrock. Navigate to integrations under environment.
 
 <div align="center" padding=25px>
     <img src="images/env-integrations.png" width=75% height=75%>
 </div>
 
-2. Navigate to connections and add connections.
+3. Navigate to connections and add connections.
 
 <div align="center" padding=25px>
     <img src="images/integrations-connection.png" width=75% height=75%>
