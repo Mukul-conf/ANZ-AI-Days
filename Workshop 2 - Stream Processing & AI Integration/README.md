@@ -16,7 +16,7 @@
 7. [Create Atlas MongoDB Source Connector for shoes and customers details](#step-7)
 8. [Stream Processing with Flink for getting trendy products, customer segements, and combine the records into one topic](#step-8)
 9. [Consume final topic and recommend shoes to customers with aws bedrock](#step-9)
-10. [Generate embeddings using Flink](#step-10)
+10. [Generate embeddings using Flink & Bedrock (Optional)](#step-10)
 11. [Clean Up Resources](#step-11)
 12. [Confluent Resources and Further Testing](#step-12)
 ***
@@ -531,16 +531,16 @@ LATERAL TABLE(
 
 <div align="center"><img src="images/final-message.png" width=75% height=75%></div>
 
-## <a name="step-10"></a>Flink Bedrock Generation
+## <a name="step-10"></a> Embedding Generation using Flink & Bedrock (Optional)
 
-The next step is to sink topics to elasticsearch for analytics and monitoring.
+The next step is to generate embeddings using Titan Model in Bedrock.
 
-You can either use Elasticsearch Cloud services or self manage the elasticsearch with docker. Refer [`elk`](elk) for steps.
 
-1. First, navigate to your workshop cluster.
-2. Next, click on the **Connectors** link on the navigation menu.
-3. Click on **Add Connector**
-4. Now search for elastic 
+1. First, navigate to aws and enable access to the Titan Model.
+2. Get AWS
+3. Navigate to Environments -> Integrations -> Connections and create a Bedrock integration. 
+4. Click on **Add Connector**
+5. Now search for elastic 
 
 <div align="center" padding=25px>
     <img src="images/elasticsearch-connector.png" width=75% height=75%>
