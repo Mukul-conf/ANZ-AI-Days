@@ -16,7 +16,7 @@
 7. [Create Atlas MongoDB Source Connector for shoes and customers details](#step-7)
 8. [Stream Processing with Flink for getting trendy products, customer segements, and combine the records into one topic](#step-8)
 9. [Consume final topic and recommend shoes to customers with aws bedrock](#step-9)
-10. [Elasticsearch Monitoring](#step-10)
+10. [Generate embeddings using Flink](#step-10)
 11. [Clean Up Resources](#step-11)
 12. [Confluent Resources and Further Testing](#step-12)
 ***
@@ -531,7 +531,7 @@ LATERAL TABLE(
 
 <div align="center"><img src="images/final-message.png" width=75% height=75%></div>
 
-## <a name="step-10"></a>Elasticsearch Monitoring
+## <a name="step-10"></a>Flink Bedrock Generation
 
 The next step is to sink topics to elasticsearch for analytics and monitoring.
 
