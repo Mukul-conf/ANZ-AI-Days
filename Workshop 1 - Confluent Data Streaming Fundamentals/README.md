@@ -174,7 +174,7 @@ The next step is to produce sample data using the Datagen Source connector. You 
 
 2. click on Additional configuration. 
 <div align="center" padding=25px>
-    <img src="images/add.png" width=75% height=75%>
+    <img src="images/add.png" width=50% height=50%>
 </div>
 
 3. Enter the following configuration details. The remaining fields can be left blank.
