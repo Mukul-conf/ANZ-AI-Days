@@ -588,10 +588,7 @@ WITH (
 
 ```sql
 SELECT * from text_input, LATERAL TABLE(ML_PREDICT('RECOMMEND_BEDROCK_TITAN', input));
-
 ```
-<div align="center"><img src="images/final-message-embeddings.png" width=75% height=75%></div>
-
 
 ## <a name="step-11"></a>Clean Up Resources
 
