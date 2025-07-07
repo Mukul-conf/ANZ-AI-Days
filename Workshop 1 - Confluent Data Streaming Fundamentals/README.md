@@ -24,7 +24,7 @@
 ## **Architecture Diagram**
 
 <div align="center">
-    <img src="images/Archi.png" width=75% height=75%>
+    <img src="images/Archi.png" width=100% height=100%>
 </div>
 
 This workshop will be utilizing confluent Datagen, Redshift, flink instances that are being managed by Confluent. You will not be able to access these instances outside of the workshop time.  To test Flink and connectors outside of the workshop you can take a look at the flink [quickstart](https://docs.confluent.io/cloud/current/get-started/ksql.html) and fully-managed connectors [page](https://docs.confluent.io/cloud/current/connectors/index.html#kafka-connect-cloud).
