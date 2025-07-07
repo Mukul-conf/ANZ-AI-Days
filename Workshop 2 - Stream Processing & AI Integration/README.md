@@ -584,8 +584,7 @@ WITH (
     );
 ```
 
-8. Use the bedrock model to get shoes/brands recommendation based upon the input gathered in the final topic.
-
+6. Use the bedrock model to get embeddings from topic data
 ```sql
 SELECT * from text_input, LATERAL TABLE(ML_PREDICT('RECOMMEND_BEDROCK_TITAN', input));
 ```
