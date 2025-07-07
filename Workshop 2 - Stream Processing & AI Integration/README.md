@@ -16,7 +16,7 @@
 7. [Create Atlas MongoDB Source Connector for shoes and customers details](#step-7)
 8. [Stream Processing with Flink for getting trendy products, customer segements, and combine the records into one topic](#step-8)
 9. [Consume final topic and recommend shoes to customers with aws bedrock](#step-9)
-10. [Elasticsearch Monitoring](#step-10)
+10. [Generate embeddings using Flink & Bedrock (Optional)](#step-10)
 11. [Clean Up Resources](#step-11)
 12. [Confluent Resources and Further Testing](#step-12)
 ***
@@ -460,34 +460,42 @@ CREATE TABLE personalized_recommendation_input AS
 
 ## <a name="step-9"></a>Consume final topic and recommend shoes to customers with aws bedrock
 
-1. Use confluent UI to create connection with bedrock. Navigate to integrations under environment.
+1. Enable access to AWS Bedrock LLama 3 8B Instruct model.
+   Navigate to Amazon Bedrock, Model Catalog, Filter by Meta and search for LLama 3 8B Instruct.
+   
+<div align="center" padding=25px>
+    <img src="images/bedrock-Llama-access.png" width=75% height=75%>
+</div> 
+
+ 
+2. Use confluent UI to create connection with bedrock. Navigate to integrations under environment.
 
 <div align="center" padding=25px>
     <img src="images/env-integrations.png" width=75% height=75%>
 </div>
 
-2. Navigate to connections and add connections.
+3. Navigate to connections and add connections.
 
 <div align="center" padding=25px>
     <img src="images/integrations-connection.png" width=75% height=75%>
 </div>
 
-4. Copy the AWS Credentails from AWS dashboard.
+4. Copy the AWS Credentials from the AWS dashboard.
 
 <div align="center" padding=25px>
     <img src="images/aws-creds.png" width=75% height=75%>
 </div>
 
->**Note:** Alternatively you can create a new AWS user and assign AmazonBedrockFullAccess policy and generate the Key and secret for this user. <br> <div align="center"><img src="images/aws-bedrock-creds.png" width=75% height=75%></div>
+>**Note:** Alternatively, you can create a new AWS user and assign the AmazonBedrockFullAccess policy and generate the Key and secret for this user. <br> <div align="center"><img src="images/aws-bedrock-creds.png" width=75% height=75%></div>
 
-5. Select Bedrock, add above aws credentials and bedrock endpoint url:
+5. Select Bedrock, add above AWS credentials and Bedrock endpoint URL:
     https://bedrock-runtime.us-east-1.amazonaws.com/model/meta.llama3-8b-instruct-v1:0/invoke
     
 <div align="center" padding=25px>
     <img src="images/bedrock-int.png" width=75% height=75%>
 </div>
 
-6. After creating the connection validate if the integration is created sucessfully.
+6. After creating the connection, validate if the integration is created successfully.
 
 <div align="center" padding=25px>
     <img src="images/bedrock-int-validate.png" width=75% height=75%>
@@ -531,66 +539,59 @@ LATERAL TABLE(
 
 <div align="center"><img src="images/final-message.png" width=75% height=75%></div>
 
-## <a name="step-10"></a>Elasticsearch Monitoring
+## <a name="step-10"></a> Embedding Generation using Flink & Bedrock (Optional)
 
-The next step is to sink topics to elasticsearch for analytics and monitoring.
+The next step is to generate embeddings using Titan Model in AWS Bedrock.
 
-You can either use Elasticsearch Cloud services or self manage the elasticsearch with docker. Refer [`elk`](elk) for steps.
+1. First, navigate to AWS Bedrock Model Catalog and enable access to the Titan Model.
+   
+<div align="center" padding=25px>
+    <img src="images/aws-bedrock-titan.png" width=75% height=75%>
+</div>
 
-1. First, navigate to your workshop cluster.
-2. Next, click on the **Connectors** link on the navigation menu.
-3. Click on **Add Connector**
-4. Now search for elastic 
+2. Copy the AWS Credentials from the AWS dashboard.
 
 <div align="center" padding=25px>
-    <img src="images/elasticsearch-connector.png" width=75% height=75%>
+    <img src="images/aws-creds.png" width=75% height=75%>
 </div>
 
-5. Enter the following configuration details in the setup wizard. The remaining fields can be left blank or default.
-<div align="center">
+>**Note:** Alternatively, you can create a new AWS user and assign the AmazonBedrockFullAccess policy and generate the Key and secret for this user. <br> <div align="center"><img src="images/aws-bedrock-creds.png" width=75% height=75%></div>
 
-| Setting                            | Value                                               |
-|------------------------------------|-----------------------------------------------------|
-| Topic names                        | customer_segments_table , top_products_every_minute |
-| API Key                            | [*from step 5*](#step-5)                            |
-| API Secret                         | [*from step 5*](#step-5)                            |
-| Connection URI                     | < Elasticsearch Server URL >                        |
-| Connection user                    | < Elasticsearch Username >                          |
-| Connection password                | < Elasticsearch Password >                          |
-| Input kakfa record value format    | AVRO                                                |
-| Key ignore                         | true                                                |
-| Tasks                              | 1                                                   |
-| Name                               | ElasticsearchSinkConnector_monitoring               |
-> **Note:** It may take a few moments for the connectors to launch. Check the status and when both are ready, the status should show *running*. <br>      
+3. Navigate to Environments -> Integrations -> Connections and create a Bedrock integration. 
+   Endpoint: https://bedrock-runtime.us-east-1.amazonaws.com/model/amazon.titan-embed-text-v2:0/invoke
+ 
+<div align="center" padding=25px>
+    <img src="images/bedrock-titan.png" width=75% height=75%>
 </div>
 
-<br>
+4. Validate if the connection is created successfully.
 
+<div align="center" padding=25px>
+    <img src="images/aws-titan-validate.png" width=75% height=75%>
+</div>
 
+5. Use the same connection to create a model in Flink.
 
-6. Review your selections and then click **Launch**.
+```sql
+CREATE MODEL RECOMMEND_BEDROCK_TITAN
+INPUT (`text` VARCHAR(2147483647)) 
+OUTPUT (`output` VARCHAR(2147483647)) 
+WITH ( 
+    'bedrock.connection' = 'bedrock-connection-titan', 
+    'bedrock.input_format' = 'Generate a personalized product recommendation message',
+    'provider' = 'bedrock', 
+    'task' = 'embedding' 
+    );
+```
 
-7. Next step is to create Elasticsearch data-views and kibana-dashboard. You can use [`elasticsearch.ndjson`](elasticsearch.ndjson) to import the dashbaord.
-
-8. Now Visit Elasticsearch UI and select Stack Management page under Management from the hamburger menu.
-<div align="center" padding=25px><img src="images/elasticsearch-1.png" width=75% height=75%></div>
-
-9. Proceed to Saved Objects page under kibana section
-<div align="center" padding=25px><img src="images/elasticsearch-2.png" width=75% height=75%></div>
-
-10. Import dashboard template from [`elasticsearch.ndjson`](elasticsearch.ndjson) file.
-
-<div align="center" padding=25px><img src="images/elasticsearch-3.png" width=75% height=75%></div>
-<br>
-<div align="center" padding=25px><img src="images/elasticsearch-4.png" width=75% height=75%></div>
-<br>
-<div align="center" padding=25px><img src="images/elasticsearch-5.png" width=75% height=75%></div>
-
-11. Once dashboard imported successfully , visit Dashboards page under Analytics section.
-
-<div align="center" padding=25px><img src="images/elasticsearch-6.png" width=75% height=75%></div>
-<br>
-<div align="center" padding=25px><img src="images/elasticsearch-7.png" width=90% height=90%></div>
+6. Use the bedrock model to get embeddings from topic data
+```sql
+SELECT `user_id`, response from(
+SELECT * from shoes_clickstream, LATERAL TABLE(ML_PREDICT('RECOMMEND_BEDROCK_TITAN', `user_id`)));
+```
+<div align="center" padding=25px>
+    <img src="images/final-embeddings.png" width=75% height=75%>
+</div>
 
 ## <a name="step-11"></a>Clean Up Resources
 
