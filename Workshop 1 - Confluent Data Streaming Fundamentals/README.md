@@ -1,5 +1,5 @@
 <div align="center" padding=25px>
-    <img src="images/confluent.png" width=200% height=300% >
+    <img src="images/confluent.png" width=150% height=200% >
 </div>
 
 # <div align="center">Confluent Data Streming 101 - Kafka,Connect,Schema,Flink </div>
