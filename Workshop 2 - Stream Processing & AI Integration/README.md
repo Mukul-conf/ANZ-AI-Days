@@ -586,8 +586,12 @@ WITH (
 
 6. Use the bedrock model to get embeddings from topic data
 ```sql
-SELECT * from text_input, LATERAL TABLE(ML_PREDICT('RECOMMEND_BEDROCK_TITAN', input));
+SELECT `user_id`, response from(
+SELECT * from shoes_clickstream, LATERAL TABLE(ML_PREDICT('RECOMMEND_BEDROCK_TITAN', `user_id`)));
 ```
+<div align="center" padding=25px>
+    <img src="images/final-embeddings.png" width=75% height=75%>
+</div>
 
 ## <a name="step-11"></a>Clean Up Resources
 
