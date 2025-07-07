@@ -39,7 +39,7 @@ This workshop will be utilizing confluent Datagen, Redshift, flink instances tha
     > **Note:** You will create resources during this workshop that will incur costs. When you sign up for a Confluent Cloud account, you will get free credits to use in Confluent Cloud. This will cover the cost of resources created during the workshop. More details on the specifics can be found [here](https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.fm-apac_cd.anz-ai-game-day_id.701Uz00000ea25wIAA&utm_medium=workshop).
 
 <div align="center" padding=25px>
-    <img src="images/billing.png" width=75% height=75%>
+    <img src="images/billing.png" >
 </div>
 
 ***
@@ -59,7 +59,7 @@ This workshop is perfect for those looking to build the foundation for your data
 1. Log into [Confluent Cloud](https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.fm-apac_cd.anz-ai-game-day_id.701Uz00000ea25wIAA&utm_medium=workshop) and enter your email and password.
 
 <div align="center" padding=25px>
-    <img src="images/updated-login.png" width=50% height=50%>
+    <img src="images/updated-login.png" >
 </div>
 
 2. If you are logging in for the first time, you will see a self-guided wizard that walks you through spinning up a cluster. Please minimize this as you will walk through those steps in this workshop. 
@@ -78,7 +78,7 @@ An environment contains clusters and its deployed components such as Apache Flin
 > There is a *default* environment ready in your account upon account creation. You can use this *default* environment for the purpose of this workshop if you do not wish to create an additional environment.
 
 <div align="center" padding=25px>
-    <img src="images/create-environment.png" width=50% height=50%>
+    <img src="images/create-environment.png" >
 </div>
 
 
@@ -100,19 +100,19 @@ An environment contains clusters and its deployed components such as Apache Flin
 2. Select the **Flink** tab and click **Create Compute Pool**.
 
 <div align="center" padding=25px>
-    <img src="images/create-flink-pool-updated-1.png" width=50% height=50%>
+    <img src="images/create-flink-pool-updated-1.png" >
 </div>
 
 3. Select `AWS` as cloud and `N. Virginia (us-east-1)` as the **Region** and then click **Continue**.
 
 <div align="center" padding=25px>
-    <img src="images/flink-region1.png" width=50% height=50%>
+    <img src="images/flink-region1.png" >
 </div>
 
 4. Enter a name for your pool (e.g. `flink-workshop-pool`) and click **Create**.
 
 <div align="center" padding=25px>
-    <img src="images/flink-pool.png" width=50% height=50%>
+    <img src="images/flink-pool.png" >
 </div>
 
 > [!Note]
@@ -128,7 +128,7 @@ An environment contains clusters and its deployed components such as Apache Flin
 7. For the right-most *Use* label, click the dropdown and select your cluster.
 
 <div align="center" padding=25px>
-    <img src="images/flink-catalog1.png" width=50% height=50%>
+    <img src="images/flink-catalog1.png" >
 </div>
 
 ***
@@ -169,12 +169,12 @@ The next step is to produce sample data using the Datagen Source connector. You 
 1. First, you will create the connector that will send data to **shoe_customers**. From the Confluent Cloud UI, click on the **Connectors** tab on the navigation menu. Click on the **Datagen Source** icon.
 
 <div align="center" padding=25px>
-    <img src="images/connectors.png" width=75% height=75%>
+    <img src="images/connectors.png" >
 </div>
 
 2. click on Additional configuration. 
 <div align="center" padding=25px>
-    <img src="images/add.png" width=50% height=50%>
+    <img src="images/add.png" >
 </div>
 
 3. Enter the following configuration details. The remaining fields can be left blank.
@@ -195,15 +195,15 @@ The next step is to produce sample data using the Datagen Source connector. You 
 <br>
 
 <div align="center" padding=25px>
-    <img src="images/datagen-1.png" width=75% height=75%>
-    <img src="images/datagen-2.png" width=75% height=75%>
+    <img src="images/datagen-1.png" >
+    <img src="images/datagen-2.png" >
 </div>
 
 
 4. Before launching the connector, you should see something similar to the following. If everything looks similar, select **Launch**. 
 
 <div align="center" padding=25px>
-    <img src="images/datagen-4.png" width=50% height=50%>
+    <img src="images/datagen-4.png" >
 </div>
 
 5. Next, create the second connector that will send data to **shoe_products**. Click on **+ Add Connector** and then the **datagen Source** icon again. 
@@ -248,7 +248,7 @@ The next step is to produce sample data using the Datagen Source connector. You 
 
 10. Review the output again and then select **Launch**.
 
-> **Note:** It may take a few moments for the connectors to launch. Check the status and when both are ready, the status should show *running*. <br> <div align="center"><img src="images/running-connectors.png" width=75% height=75%></div>
+> **Note:** It may take a few moments for the connectors to launch. Check the status and when both are ready, the status should show *running*. <br> <div align="center"><img src="images/running-connectors.png" ></div>
 
 > **Note:** If the connectors fails, there are a few different ways to troubleshoot the error:
 > * Click on the *Connector Name*. You will see a play and pause button on this page. Click on the play button.
@@ -269,7 +269,7 @@ The next step is to produce sample data using the Datagen Source connector. You 
 * The message details should look something like the following. 
 
 <div align="center">
-    <img src="images/message-view-2.png" width='75%' height='75%'>
+    <img src="images/message-view-2.png">
 </div>
 
 ***
@@ -297,7 +297,7 @@ Following mappings exist:
 SHOW TABLES;
 ```
 <div align="center">
-    <img src="images/show-tables.png" width=75% height=75%>
+    <img src="images/show-tables.png" >
 </div>
 
 2. Understand how the table `shoe_products` was created:
@@ -307,7 +307,7 @@ SHOW CREATE TABLE shoe_products;
 ```
 
 <div align="center">
-    <img src="images/show-table-shoe_products.png" width=75% height=75%>
+    <img src="images/show-table-shoe_products.png" >
 </div>
 
 3. Let's check if any product records exist in the table.
@@ -337,7 +337,7 @@ GROUP BY window_end;
 ```
 
 <div align="center">
-    <img src="images/flink-window-function.gif" width=75% height=75%>
+    <img src="images/flink-window-function.gif" >
 </div>
 
 > **Note:** Check this [link](https://docs.confluent.io/cloud/current/flink/reference/queries/window-tvf.html) for the detailed information about Flink Window aggregations.
@@ -366,7 +366,7 @@ SHOW CREATE TABLE shoe_customers_keyed;
 ```
 
 <div align="center">
-    <img src="images/flink-tables-primary-key.png" width=75% height=75%>
+    <img src="images/flink-tables-primary-key.png" >
 </div>
 
 By creating a table with Primary Key option, you changed the changelog-mode to upsert which means that all rows with same primary key are related and must be partitioned together.
@@ -467,7 +467,7 @@ SELECT * FROM shoe_orders_enriched_customer_product;
 ```
 
 <div align="center">
-    <img src="images/flink-join-orders-enrichment.gif" width=75% height=75%>
+    <img src="images/flink-join-orders-enrichment.gif" >
 </div>
 
 ***
@@ -488,7 +488,7 @@ GROUP BY email;
 ```
 
 <div align="center">
-    <img src="images/flink-loyalty-level-calculation.gif" width=75% height=75%>
+    <img src="images/flink-loyalty-level-calculation.gif" >
 </div>
 
 
@@ -528,7 +528,7 @@ FROM shoe_loyalty_levels;
 ```
 
 <div align="center">
-    <img src="images/flink-loyalty-level-table.gif" width=75% height=75%>
+    <img src="images/flink-loyalty-level-table.gif" >
 </div>
 
 ***
@@ -587,7 +587,7 @@ FROM shoe_promotions;
 ```
 
 <div align="center">
-    <img src="images/flink-promotion-notifications.gif" width=75% height=75%>
+    <img src="images/flink-promotion-notifications.gif" >
 </div>
 
 
