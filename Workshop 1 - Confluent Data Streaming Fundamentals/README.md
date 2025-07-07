@@ -269,7 +269,7 @@ The next step is to produce sample data using the Datagen Source connector. You 
 * The message details should look something like the following. 
 
 <div align="center">
-    <img src="images/message-view-2.png" width=75% height=75%>
+    <img src="images/message-view-2.png" width='75%' height='75%'>
 </div>
 
 ***
