@@ -1,0 +1,501 @@
+movie_id,title,release_year,genre,duration
+tt0111161,The Shawshank Redemption,1994,Drama,120
+tt0468569,The Dark Knight,2008,"Action,Crime,Drama",90
+tt1375666,Inception,2010,"Action,Adventure,Sci-Fi",144
+tt0137523,Fight Club,1999,"Crime,Drama,Thriller",81
+tt0109830,Forrest Gump,1994,"Drama,Romance",128
+tt0816692,Interstellar,2014,"Adventure,Drama,Sci-Fi",111
+tt0110912,Pulp Fiction,1994,"Crime,Drama",161
+tt0133093,The Matrix,1999,"Action,Sci-Fi",99
+tt0068646,The Godfather,1972,"Crime,Drama",80
+tt0120737,The Lord of the Rings: The Fellowship of the Ring,2001,"Adventure,Drama,Fantasy",140
+tt0167260,The Lord of the Rings: The Return of the King,2003,"Adventure,Drama,Fantasy",120
+tt0114369,Se7en,1995,"Crime,Drama,Mystery",117
+tt1345836,The Dark Knight Rises,2012,"Action,Crime,Drama",178
+tt0167261,The Lord of the Rings: The Two Towers,2002,"Adventure,Drama,Fantasy",174
+tt1853728,Django Unchained,2012,"Drama,Western",161
+tt0172495,Gladiator,2000,"Action,Adventure,Drama",123
+tt0993846,The Wolf of Wall Street,2013,"Biography,Comedy,Crime",102
+tt0361748,Inglourious Basterds,2009,"Adventure,Drama,War",166
+tt0372784,Batman Begins,2005,"Action,Crime,Drama",92
+tt0102926,The Silence of the Lambs,1991,"Crime,Drama,Horror",132
+tt7286456,Joker,2019,"Crime,Drama,Thriller",82
+tt0120815,Saving Private Ryan,1998,"Drama,War",85
+tt1130884,Shutter Island,2010,"Drama,Mystery,Thriller",147
+tt0108052,Schindler's List,1993,"Biography,Drama,History",177
+tt0482571,The Prestige,2006,"Drama,Mystery,Sci-Fi",123
+tt0076759,Star Wars: Episode IV - A New Hope,1977,"Action,Adventure,Fantasy",180
+tt0848228,The Avengers,2012,"Action,Sci-Fi",180
+tt0407887,The Departed,2006,"Crime,Drama,Thriller",83
+tt0120689,The Green Mile,1999,"Crime,Drama,Fantasy",80
+tt0080684,Star Wars: Episode V - The Empire Strikes Back,1980,"Action,Adventure,Fantasy",157
+tt0071562,The Godfather Part II,1974,"Crime,Drama",102
+tt0499549,Avatar,2009,"Action,Adventure,Fantasy",178
+tt0088763,Back to the Future,1985,"Adventure,Comedy,Sci-Fi",176
+tt0209144,Memento,2000,"Mystery,Thriller",120
+tt4154796,Avengers: Endgame,2019,"Action,Adventure,Sci-Fi",80
+tt0120338,Titanic,1997,"Drama,Romance",120
+tt0099685,Goodfellas,1990,"Biography,Crime,Drama",104
+tt2015381,Guardians of the Galaxy,2014,"Action,Adventure,Comedy",160
+tt0110413,Léon: The Professional,1994,"Action,Crime,Drama",143
+tt4154756,Avengers: Infinity War,2018,"Action,Adventure,Sci-Fi",103
+tt0120382,The Truman Show,1998,"Comedy,Drama",177
+tt0325980,Pirates of the Caribbean: The Curse of the Black Pearl,2003,"Action,Adventure,Fantasy",146
+tt0910970,WALL·E,2008,"Adventure,Animation,Family",103
+tt0266697,Kill Bill: Vol. 1,2003,"Action,Crime,Thriller",169
+tt0169547,American Beauty,1999,Drama,116
+tt0103064,Terminator 2: Judgment Day,1991,"Action,Adventure,Sci-Fi",108
+tt0120586,American History X,1998,"Crime,Drama",86
+tt0434409,V for Vendetta,2005,"Action,Drama,Sci-Fi",141
+tt1431045,Deadpool,2016,"Action,Comedy,Sci-Fi",137
+tt0110357,The Lion King,1994,"Adventure,Animation,Drama",109
+tt0114814,The Usual Suspects,1995,"Crime,Drama,Mystery",111
+tt1049413,Up,2009,"Adventure,Animation,Comedy",113
+tt0371746,Iron Man,2008,"Action,Adventure,Sci-Fi",117
+tt0081505,The Shining,1980,"Drama,Horror",113
+tt0264464,Catch Me If You Can,2002,"Biography,Crime,Drama",122
+tt0086190,Star Wars: Episode VI - Return of the Jedi,1983,"Action,Adventure,Fantasy",160
+tt1392190,Mad Max: Fury Road,2015,"Action,Adventure,Sci-Fi",81
+tt0266543,Finding Nemo,2003,"Adventure,Animation,Comedy",96
+tt0119217,Good Will Hunting,1997,"Drama,Romance",171
+tt0338013,Eternal Sunshine of the Spotless Mind,2004,"Drama,Romance,Sci-Fi",115
+tt0105236,Reservoir Dogs,1992,"Crime,Thriller",81
+tt0112573,Braveheart,1995,"Biography,Drama,War",155
+tt0477348,No Country for Old Men,2007,"Crime,Drama,Thriller",174
+tt0114709,Toy Story,1995,"Adventure,Animation,Comedy",105
+tt2267998,Gone Girl,2014,"Drama,Mystery,Thriller",126
+tt0107290,Jurassic Park,1993,"Action,Adventure,Sci-Fi",87
+tt0073486,One Flew Over the Cuckoo's Nest,1975,Drama,176
+tt0167404,The Sixth Sense,1999,"Drama,Mystery,Thriller",85
+tt2582802,Whiplash,2014,"Drama,Music",97
+tt0082971,Raiders of the Lost Ark,1981,"Action,Adventure",82
+tt6751668,Parasite,2019,"Drama,Thriller",110
+tt1392170,The Hunger Games,2012,"Action,Adventure,Sci-Fi",158
+tt0198781,"Monsters, Inc.",2001,"Adventure,Animation,Comedy",98
+tt0268978,A Beautiful Mind,2001,"Biography,Drama,Mystery",176
+tt0078748,Alien,1979,"Horror,Sci-Fi",106
+tt2488496,Star Wars: Episode VII - The Force Awakens,2015,"Action,Adventure,Sci-Fi",147
+tt1201607,Harry Potter and the Deathly Hallows: Part 2,2011,"Adventure,Family,Fantasy",111
+tt0095016,Die Hard,1988,"Action,Thriller",163
+tt0075314,Taxi Driver,1976,"Crime,Drama",143
+tt1675434,The Intouchables,2011,"Comedy,Drama",161
+tt0253474,The Pianist,2002,"Biography,Drama,Music",91
+tt3659388,The Martian,2015,"Adventure,Drama,Sci-Fi",136
+tt0086250,Scarface,1983,"Crime,Drama",139
+tt0088247,The Terminator,1984,"Action,Adventure,Sci-Fi",103
+tt2395427,Avengers: Age of Ultron,2015,"Action,Adventure,Sci-Fi",87
+tt1160419,Dune: Part One,2021,"Action,Adventure,Drama",138
+tt10872600,Spider-Man: No Way Home,2021,"Action,Adventure,Fantasy",165
+tt0208092,Snatch,2000,"Comedy,Crime",167
+tt0180093,Requiem for a Dream,2000,Drama,117
+tt1843866,Captain America: The Winter Soldier,2014,"Action,Adventure,Sci-Fi",120
+tt0800369,Thor,2011,"Action,Fantasy",102
+tt0458339,Captain America: The First Avenger,2011,"Action,Adventure,Sci-Fi",179
+tt0435761,Toy Story 3,2010,"Adventure,Animation,Comedy",118
+tt1300854,Iron Man 3,2013,"Action,Adventure,Sci-Fi",127
+tt2278388,The Grand Budapest Hotel,2014,"Comedy,Drama",175
+tt0145487,Spider-Man,2002,"Action,Adventure,Sci-Fi",135
+tt0245429,Spirited Away,2001,"Adventure,Animation,Family",117
+tt1663202,The Revenant,2015,"Adventure,Drama,Western",97
+tt0066921,A Clockwork Orange,1971,"Crime,Sci-Fi",122
+tt7131622,Once Upon a Time... in Hollywood,2019,"Comedy,Drama",157
+tt0241527,Harry Potter and the Sorcerer's Stone,2001,"Adventure,Family,Fantasy",88
+tt1228705,Iron Man 2,2010,"Action,Sci-Fi",163
+tt0903624,The Hobbit: An Unexpected Journey,2012,"Adventure,Fantasy",146
+tt15398776,Oppenheimer,2023,"Biography,Drama,History",122
+tt0120915,Star Wars: Episode I - The Phantom Menace,1999,"Action,Adventure,Fantasy",135
+tt1010048,Slumdog Millionaire,2008,"Crime,Drama,Romance",155
+tt3315342,Logan,2017,"Action,Drama,Sci-Fi",114
+tt0118715,The Big Lebowski,1998,"Comedy,Crime",93
+tt0416449,300,2006,"Action,Drama",144
+tt3498820,Captain America: Civil War,2016,"Action,Sci-Fi",155
+tt1119646,The Hangover,2009,Comedy,173
+tt0382932,Ratatouille,2007,"Adventure,Animation,Comedy",153
+tt0121766,Star Wars: Episode III - Revenge of the Sith,2005,"Action,Adventure,Fantasy",138
+tt0246578,Donnie Darko,2001,"Drama,Mystery,Sci-Fi",137
+tt1454468,Gravity,2013,"Drama,Sci-Fi,Thriller",166
+tt1825683,Black Panther,2018,"Action,Adventure,Sci-Fi",150
+tt1392214,Prisoners,2013,"Crime,Drama,Mystery",130
+tt1877830,The Batman,2022,"Action,Crime,Drama",156
+tt2096673,Inside Out,2015,"Adventure,Animation,Comedy",162
+tt0947798,Black Swan,2010,"Drama,Thriller",100
+tt0317705,The Incredibles,2004,"Action,Adventure,Animation",153
+tt3501632,Thor: Ragnarok,2017,"Action,Adventure,Comedy",87
+tt0083658,Blade Runner,1982,"Action,Drama,Sci-Fi",112
+tt2084970,The Imitation Game,2014,"Biography,Drama,Thriller",108
+tt0892769,How to Train Your Dragon,2010,"Action,Adventure,Animation",106
+tt0480249,I Am Legend,2007,"Drama,Horror,Sci-Fi",154
+tt1211837,Doctor Strange,2016,"Action,Adventure,Fantasy",92
+tt1205489,Gran Torino,2008,Drama,151
+tt0097576,Indiana Jones and the Last Crusade,1989,"Action,Adventure",140
+tt0317248,City of God,2002,"Crime,Drama",109
+tt0378194,Kill Bill: Vol. 2,2004,"Action,Crime,Thriller",176
+tt0770828,Man of Steel,2013,"Action,Adventure,Sci-Fi",138
+tt0093058,Full Metal Jacket,1987,"Drama,War",115
+tt2543164,Arrival,2016,"Drama,Mystery,Sci-Fi",151
+tt8946378,Knives Out,2019,"Comedy,Crime,Drama",124
+tt0211915,Amélie,2001,"Comedy,Romance",131
+tt0090605,Aliens,1986,"Action,Adventure,Horror",162
+tt0401792,Sin City,2005,"Crime,Thriller",157
+tt0383574,Pirates of the Caribbean: Dead Man's Chest,2006,"Action,Adventure,Fantasy",84
+tt3896198,Guardians of the Galaxy Vol. 2,2017,"Action,Adventure,Comedy",115
+tt0121765,Star Wars: Episode II - Attack of the Clones,2002,"Action,Adventure,Fantasy",153
+tt1285016,The Social Network,2010,"Biography,Drama",88
+tt2911666,John Wick,2014,"Action,Crime,Thriller",83
+tt0144084,American Psycho,2000,"Crime,Drama,Horror",125
+tt1745960,Top Gun: Maverick,2022,"Action,Drama",159
+tt0118799,Life Is Beautiful,1997,"Comedy,Drama,Romance",84
+tt0126029,Shrek,2001,"Adventure,Animation,Comedy",142
+tt1631867,Edge of Tomorrow,2014,"Action,Adventure,Sci-Fi",151
+tt5013056,Dunkirk,2017,"Action,Drama,History",87
+tt2975590,Batman v Superman: Dawn of Justice,2016,"Action,Adventure,Sci-Fi",142
+tt1877832,X-Men: Days of Future Past,2014,"Action,Adventure,Sci-Fi",104
+tt2024544,12 Years a Slave,2013,"Biography,Drama,History",146
+tt5052448,Get Out,2017,"Horror,Mystery,Thriller",129
+tt0113277,Heat,1995,"Action,Crime,Drama",125
+tt2250912,Spider-Man: Homecoming,2017,"Action,Adventure,Sci-Fi",165
+tt1045658,Silver Linings Playbook,2012,"Comedy,Drama,Romance",90
+tt0116282,Fargo,1996,"Crime,Drama,Thriller",174
+tt0816711,World War Z,2013,"Action,Adventure,Horror",90
+tt2802144,Kingsman: The Secret Service,2014,"Action,Adventure,Comedy",177
+tt1981115,Thor: The Dark World,2013,"Action,Adventure,Fantasy",119
+tt0478970,Ant-Man,2015,"Action,Comedy,Sci-Fi",146
+tt1074638,Skyfall,2012,"Action,Adventure,Thriller",92
+tt0117951,Trainspotting,1996,Drama,105
+tt1951264,The Hunger Games: Catching Fire,2013,"Action,Adventure,Sci-Fi",118
+tt0316654,Spider-Man 2,2004,"Action,Adventure,Sci-Fi",89
+tt0405159,Million Dollar Baby,2004,"Drama,Sport",127
+tt1270798,X-Men: First Class,2011,"Action,Sci-Fi",127
+tt0078788,Apocalypse Now,1979,"Drama,Mystery,War",161
+tt1386697,Suicide Squad,2016,"Action,Adventure,Fantasy",112
+tt1670345,Now You See Me,2013,"Crime,Mystery,Thriller",124
+tt0780504,Drive,2011,"Action,Drama",120
+tt1136608,District 9,2009,"Action,Sci-Fi,Thriller",140
+tt4633694,Spider-Man: Into the Spider-Verse,2018,"Action,Adventure,Animation",139
+tt0948470,The Amazing Spider-Man,2012,"Action,Sci-Fi",135
+tt1170358,The Hobbit: The Desolation of Smaug,2013,"Adventure,Fantasy",89
+tt0295297,Harry Potter and the Chamber of Secrets,2002,"Adventure,Family,Fantasy",101
+tt8579674,1917,2019,"Action,Drama,War",105
+tt0304141,Harry Potter and the Prisoner of Azkaban,2004,"Adventure,Family,Fantasy",152
+tt3748528,Rogue One: A Star Wars Story,2016,"Action,Adventure,Sci-Fi",179
+tt0457430,Pan's Labyrinth,2006,"Drama,Fantasy,War",149
+tt0421715,The Curious Case of Benjamin Button,2008,"Drama,Fantasy,Romance",117
+tt3783958,La La Land,2016,"Comedy,Drama,Music",137
+tt1504320,The King's Speech,2010,"Biography,Drama,History",166
+tt0449088,Pirates of the Caribbean: At World's End,2007,"Action,Adventure,Fantasy",155
+tt0451279,Wonder Woman,2017,"Action,Adventure,Fantasy",86
+tt0330373,Harry Potter and the Goblet of Fire,2005,"Adventure,Family,Fantasy",89
+tt0381061,Casino Royale,2006,"Action,Adventure,Thriller",117
+tt0107048,Groundhog Day,1993,"Comedy,Drama,Fantasy",91
+tt1856101,Blade Runner 2049,2017,"Action,Drama,Mystery",173
+tt5463162,Deadpool 2,2018,"Action,Adventure,Comedy",143
+tt1798709,Her,2013,"Drama,Romance,Sci-Fi",80
+tt0369610,Jurassic World,2015,"Action,Adventure,Sci-Fi",122
+tt0073195,Jaws,1975,"Adventure,Drama,Horror",87
+tt0418279,Transformers,2007,"Action,Adventure,Sci-Fi",130
+tt0099785,Home Alone,1990,"Comedy,Family",119
+tt2527336,Star Wars: Episode VIII - The Last Jedi,2017,"Action,Adventure,Fantasy",142
+tt3460252,The Hateful Eight,2015,"Crime,Drama,Mystery",137
+tt0988045,Sherlock Holmes,2009,"Action,Adventure,Mystery",84
+tt2294629,Frozen,2013,"Adventure,Animation,Comedy",154
+tt1637725,Ted,2012,Comedy,170
+tt0454876,Life of Pi,2012,"Adventure,Drama,Fantasy",171
+tt2562232,Birdman or (The Unexpected Virtue of Ignorance),2014,"Comedy,Drama",143
+tt0364569,Oldboy,2003,"Action,Drama,Mystery",168
+tt0758758,Into the Wild,2007,"Adventure,Biography,Drama",103
+tt1446714,Prometheus,2012,"Adventure,Mystery,Sci-Fi",120
+tt0120903,X-Men,2000,"Action,Adventure,Sci-Fi",165
+tt0469494,There Will Be Blood,2007,Drama,149
+tt0440963,The Bourne Ultimatum,2007,"Action,Mystery,Thriller",115
+tt0413300,Spider-Man 3,2007,"Action,Adventure,Sci-Fi",95
+tt0373889,Harry Potter and the Order of the Phoenix,2007,"Action,Adventure,Family",87
+tt0162222,Cast Away,2000,"Adventure,Drama,Romance",155
+tt0829482,Superbad,2007,Comedy,106
+tt0114746,12 Monkeys,1995,"Mystery,Sci-Fi,Thriller",90
+tt0075148,Rocky,1976,"Drama,Sport",156
+tt0332280,The Notebook,2004,"Drama,Romance",162
+tt0936501,Taken,2008,"Action,Crime,Thriller",158
+tt2380307,Coco,2017,"Adventure,Animation,Drama",159
+tt3890160,Baby Driver,2017,"Action,Crime,Drama",175
+tt1024648,Argo,2012,"Biography,Drama,History",124
+tt0234215,The Matrix Reloaded,2003,"Action,Sci-Fi",93
+tt0240772,Ocean's Eleven,2001,"Crime,Thriller",90
+tt1396484,It,2017,Horror,162
+tt1156398,Zombieland,2009,"Action,Comedy,Horror",85
+tt0120363,Toy Story 2,1999,"Adventure,Animation,Comedy",119
+tt0119488,L.A. Confidential,1997,"Crime,Drama,Mystery",166
+tt15239678,Dune: Part Two,2024,"Action,Adventure,Drama",157
+tt11286314,Don't Look Up,2021,"Comedy,Drama,Sci-Fi",111
+tt0119654,Men in Black,1997,"Action,Adventure,Comedy",172
+tt2119532,Hacksaw Ridge,2016,"Biography,Drama,History",125
+tt6966692,Green Book,2018,"Biography,Comedy,Drama",109
+tt2872718,Nightcrawler,2014,"Crime,Drama,Thriller",114
+tt4154664,Captain Marvel,2019,"Action,Adventure,Sci-Fi",121
+tt0443706,Zodiac,2007,"Crime,Drama,Mystery",109
+tt0120735,"Lock, Stock and Two Smoking Barrels",1998,"Comedy,Crime",125
+tt0926084,Harry Potter and the Deathly Hallows: Part 1,2010,"Adventure,Family,Fantasy",99
+tt6723592,Tenet,2020,"Action,Sci-Fi,Thriller",100
+tt6644200,A Quiet Place,2018,"Drama,Horror,Sci-Fi",119
+tt1219289,Limitless,2011,"Sci-Fi,Thriller",167
+tt0417741,Harry Potter and the Half-Blood Prince,2009,"Action,Adventure,Family",147
+tt0796366,Star Trek,2009,"Action,Adventure,Sci-Fi",88
+tt0116629,Independence Day,1996,"Action,Adventure,Sci-Fi",157
+tt1232829,21 Jump Street,2012,"Action,Comedy,Crime",94
+tt1727824,Bohemian Rhapsody,2018,"Biography,Drama,Music",137
+tt1343092,The Great Gatsby,2013,"Drama,Romance",176
+tt0365748,Shaun of the Dead,2004,"Comedy,Horror",167
+tt0470752,Ex Machina,2014,"Drama,Sci-Fi,Thriller",177
+tt1276104,Looper,2012,"Action,Drama,Sci-Fi",172
+tt1517268,Barbie,2023,"Adventure,Comedy,Fantasy",135
+tt1323594,Despicable Me,2010,"Adventure,Animation,Comedy",154
+tt1250777,Kick-Ass,2010,"Action,Comedy,Crime",94
+tt0450259,Blood Diamond,2006,"Adventure,Drama,Thriller",103
+tt0181689,Minority Report,2002,"Action,Crime,Mystery",158
+tt6320628,Spider-Man: Far from Home,2019,"Action,Adventure,Comedy",130
+tt0096874,Back to the Future Part II,1989,"Adventure,Comedy,Sci-Fi",121
+tt0409459,Watchmen,2009,"Action,Drama,Mystery",137
+tt0290334,X2: X-Men United,2003,"Action,Sci-Fi,Thriller",148
+tt2310332,The Hobbit: The Battle of the Five Armies,2014,"Adventure,Fantasy",165
+tt0343818,"I, Robot",2004,"Action,Mystery,Sci-Fi",170
+tt0258463,The Bourne Identity,2002,"Action,Mystery,Thriller",124
+tt0332452,Troy,2004,"Action,Adventure,Drama",144
+tt0112641,Casino,1995,"Crime,Drama",98
+tt1570728,"Crazy, Stupid, Love.",2011,"Comedy,Drama,Romance",98
+tt0097165,Dead Poets Society,1989,"Comedy,Drama",155
+tt0454921,The Pursuit of Happyness,2006,"Biography,Drama",122
+tt4972582,Split,2016,"Horror,Thriller",91
+tt1318514,Rise of the Planet of the Apes,2011,"Action,Drama,Sci-Fi",109
+tt1022603,500 Days of Summer,2009,"Comedy,Drama,Romance",98
+tt0071853,Monty Python and the Holy Grail,1975,"Adventure,Comedy,Fantasy",82
+tt1298650,Pirates of the Caribbean: On Stranger Tides,2011,"Action,Adventure,Fantasy",136
+tt1457767,The Conjuring,2013,"Horror,Mystery,Thriller",111
+tt5027774,"Three Billboards Outside Ebbing, Missouri",2017,"Comedy,Crime,Drama",158
+tt6710474,Everything Everywhere All at Once,2022,"Action,Adventure,Comedy",102
+tt2948356,Zootopia,2016,"Action,Adventure,Animation",83
+tt2713180,Fury,2014,"Action,Drama,War",117
+tt1270797,Venom,2018,"Action,Adventure,Sci-Fi",163
+tt10811166,The Kashmir Files,2022,Drama,99
+tt1483013,Oblivion,2013,"Action,Adventure,Sci-Fi",101
+tt1659337,The Perks of Being a Wallflower,2012,Drama,113
+tt0356910,Mr. & Mrs. Smith,2005,"Action,Comedy,Crime",116
+tt0945513,Source Code,2011,"Action,Drama,Mystery",142
+tt0095953,Rain Man,1988,Drama,153
+tt1872181,The Amazing Spider-Man 2,2014,"Action,Adventure,Sci-Fi",134
+tt0467406,Juno,2007,"Comedy,Drama",149
+tt0242653,The Matrix Revolutions,2003,"Action,Sci-Fi",151
+tt0376994,X-Men: The Last Stand,2006,"Action,Adventure,Sci-Fi",97
+tt2872732,Lucy,2014,"Action,Sci-Fi,Thriller",147
+tt0314331,Love Actually,2003,"Comedy,Drama,Romance",133
+tt1411697,The Hangover Part II,2011,Comedy,175
+tt0458525,X-Men Origins: Wolverine,2009,"Action,Sci-Fi",154
+tt0441773,Kung Fu Panda,2008,"Action,Adventure,Animation",106
+tt0087469,Indiana Jones and the Temple of Doom,1984,"Action,Adventure",159
+tt0425112,Hot Fuzz,2007,"Action,Comedy,Mystery",147
+tt0367594,Charlie and the Chocolate Factory,2005,"Adventure,Comedy,Family",132
+tt2179136,American Sniper,2014,"Action,Biography,Drama",129
+tt1229238,Mission: Impossible - Ghost Protocol,2011,"Action,Adventure,Thriller",91
+tt0206634,Children of Men,2006,"Drama,Sci-Fi,Thriller",115
+tt0099487,Edward Scissorhands,1990,"Drama,Fantasy,Romance",99
+tt0800080,The Incredible Hulk,2008,"Action,Adventure,Sci-Fi",122
+tt1663662,Pacific Rim,2013,"Action,Adventure,Sci-Fi",80
+tt4425200,John Wick: Chapter 2,2017,"Action,Crime,Thriller",154
+tt0268380,Ice Age,2002,"Adventure,Animation,Comedy",126
+tt0289879,The Butterfly Effect,2004,"Drama,Sci-Fi,Thriller",161
+tt0449059,Little Miss Sunshine,2006,"Comedy,Drama",109
+tt1477834,Aquaman,2018,"Action,Adventure,Fantasy",176
+tt1790864,The Maze Runner,2014,"Action,Mystery,Sci-Fi",150
+tt1630029,Avatar: The Way of Water,2022,"Action,Adventure,Fantasy",163
+tt1979320,Rush,2013,"Biography,Drama,Sport",151
+tt0790636,Dallas Buyers Club,2013,"Biography,Drama",86
+tt0298148,Shrek 2,2004,"Adventure,Animation,Comedy",160
+tt2245084,Big Hero 6,2014,"Action,Adventure,Animation",120
+tt0092099,Top Gun,1986,"Action,Drama",107
+tt0119116,The Fifth Element,1997,"Action,Adventure,Sci-Fi",111
+tt0448157,Hancock,2008,"Action,Comedy,Drama",115
+tt1950186,Ford v Ferrari,2019,"Action,Biography,Drama",102
+tt1951265,The Hunger Games: Mockingjay - Part 1,2014,"Action,Adventure,Sci-Fi",116
+tt3183660,Fantastic Beasts and Where to Find Them,2016,"Adventure,Family,Fantasy",130
+tt0398286,Tangled,2010,"Adventure,Animation,Comedy",92
+tt2527338,Star Wars: Episode IX - The Rise of Skywalker,2019,"Action,Adventure,Fantasy",131
+tt1895587,Spotlight,2015,"Biography,Crime,Drama",170
+tt1677720,Ready Player One,2018,"Action,Adventure,Sci-Fi",178
+tt9419884,Doctor Strange in the Multiverse of Madness,2022,"Action,Adventure,Fantasy",158
+tt1291584,Warrior,2011,"Action,Drama,Sport",120
+tt0362227,The Terminal,2004,"Comedy,Drama,Romance",106
+tt1568346,The Girl with the Dragon Tattoo,2011,"Crime,Drama,Mystery",148
+tt1454029,The Help,2011,Drama,112
+tt1596363,The Big Short,2015,"Biography,Comedy,Drama",164
+tt1430132,The Wolverine,2013,"Action,Sci-Fi",128
+tt0335266,Lost in Translation,2003,"Comedy,Drama",101
+tt3397884,Sicario,2015,"Action,Crime,Drama",145
+tt1800241,American Hustle,2013,"Crime,Drama",169
+tt1099212,Twilight,2008,"Drama,Fantasy,Romance",113
+tt1535109,Captain Phillips,2013,"Action,Biography,Crime",149
+tt1723121,We're the Millers,2013,"Comedy,Crime",102
+tt6263850,Deadpool & Wolverine,2024,"Action,Adventure,Comedy",132
+tt1840309,Divergent,2014,"Action,Adventure,Drama",83
+tt0317219,Cars,2006,"Adventure,Animation,Comedy",132
+tt0327056,Mystic River,2003,"Crime,Drama,Mystery",127
+tt1408101,Star Trek Into Darkness,2013,"Action,Adventure,Sci-Fi",180
+tt0367882,Indiana Jones and the Kingdom of the Crystal Skull,2008,"Action,Adventure",131
+tt0458352,The Devil Wears Prada,2006,"Comedy,Drama",136
+tt0099088,Back to the Future Part III,1990,"Adventure,Comedy,Sci-Fi",98
+tt0084787,The Thing,1982,"Horror,Mystery,Sci-Fi",144
+tt0372183,The Bourne Supremacy,2004,"Action,Thriller",87
+tt2103281,Dawn of the Planet of the Apes,2014,"Action,Adventure,Drama",101
+tt0117060,Mission: Impossible,1996,"Action,Adventure,Thriller",134
+tt0319262,The Day After Tomorrow,2004,"Action,Adventure,Sci-Fi",81
+tt2980516,The Theory of Everything,2014,"Biography,Drama,Romance",167
+tt0139654,Training Day,2001,"Crime,Drama,Thriller",160
+tt12593682,Bullet Train,2022,"Action,Comedy,Thriller",85
+tt0289043,28 Days Later,2002,"Drama,Horror,Sci-Fi",81
+tt0101414,Beauty and the Beast,1991,"Animation,Family,Fantasy",174
+tt1515091,Sherlock Holmes: A Game of Shadows,2011,"Action,Adventure,Mystery",146
+tt0974015,Justice League,2017,"Action,Adventure,Fantasy",97
+tt0407304,War of the Worlds,2005,"Action,Adventure,Sci-Fi",144
+tt0387564,Saw,2004,"Horror,Mystery,Thriller",122
+tt0325710,The Last Samurai,2003,"Action,Drama",121
+tt0217505,Gangs of New York,2002,"Crime,Drama",163
+tt1210166,Moneyball,2011,"Biography,Drama,Sport",87
+tt0103639,Aladdin,1992,"Adventure,Animation,Comedy",82
+tt0405422,The 40-Year-Old Virgin,2005,"Comedy,Romance",175
+tt0347149,Howl's Moving Castle,2004,"Adventure,Animation,Family",105
+tt0887912,The Hurt Locker,2008,"Drama,Thriller,War",133
+tt0830515,Quantum of Solace,2008,"Action,Adventure,Mystery",151
+tt0120616,The Mummy,1999,"Action,Adventure,Fantasy",80
+tt0446029,Scott Pilgrim vs. the World,2010,"Action,Comedy,Fantasy",131
+tt1535108,Elysium,2013,"Action,Drama,Sci-Fi",150
+tt2379713,Spectre,2015,"Action,Adventure,Thriller",103
+tt1772341,Wreck-It Ralph,2012,"Adventure,Animation,Comedy",178
+tt2283362,Jumanji: Welcome to the Jungle,2017,"Action,Adventure,Comedy",168
+tt0780536,In Bruges,2008,"Comedy,Crime,Drama",179
+tt3385516,X-Men: Apocalypse,2016,"Action,Adventure,Sci-Fi",137
+tt0070047,The Exorcist,1973,Horror,146
+tt1499658,Horrible Bosses,2011,"Comedy,Crime",154
+tt0093773,Predator,1987,"Action,Adventure,Horror",127
+tt11564570,Glass Onion,2022,"Comedy,Crime,Drama",91
+tt1355644,Passengers,2016,"Drama,Romance,Sci-Fi",137
+tt5095030,Ant-Man and the Wasp,2018,"Action,Adventure,Comedy",149
+tt1259521,The Cabin in the Woods,2011,"Horror,Mystery,Thriller",82
+tt0382625,The Da Vinci Code,2006,"Mystery,Thriller",168
+tt0765429,American Gangster,2007,"Biography,Crime,Drama",174
+tt0087332,Ghostbusters,1984,"Action,Comedy,Fantasy",157
+tt0942385,Tropic Thunder,2008,"Action,Comedy,War",136
+tt0319061,Big Fish,2003,"Adventure,Drama,Fantasy",91
+tt2584384,Jojo Rabbit,2019,"Comedy,Drama,War",140
+tt3170832,Room,2015,"Drama,Thriller",147
+tt0093779,The Princess Bride,1987,"Adventure,Comedy,Family",159
+tt1637688,In Time,2011,"Action,Sci-Fi,Thriller",92
+tt0120591,Armageddon,1998,"Action,Adventure,Sci-Fi",125
+tt2382320,No Time to Die,2021,"Action,Adventure,Thriller",128
+tt0092005,Stand by Me,1986,"Adventure,Comedy,Drama",122
+tt9376612,Shang-Chi and the Legend of the Ten Rings,2021,"Action,Adventure,Fantasy",147
+tt6264654,Free Guy,2021,"Action,Adventure,Comedy",107
+tt0377092,Mean Girls,2004,Comedy,99
+tt1217209,Brave,2012,"Action,Adventure,Animation",122
+tt9362722,Spider-Man: Across the Spider-Verse,2023,"Action,Adventure,Animation",177
+tt0119698,Princess Mononoke,1997,"Adventure,Animation,Fantasy",88
+tt1605783,Midnight in Paris,2011,"Comedy,Fantasy,Romance",97
+tt5580390,The Shape of Water,2017,"Drama,Fantasy,Romance",135
+tt0443453,Borat,2006,Comedy,171
+tt1187043,3 Idiots,2009,"Comedy,Drama",89
+tt0119567,The Lost World: Jurassic Park,1997,"Action,Adventure,Sci-Fi",144
+tt0351283,Madagascar,2005,"Adventure,Animation,Comedy",133
+tt0360717,King Kong,2005,"Action,Adventure,Romance",139
+tt9764362,The Menu,2022,"Comedy,Horror,Thriller",161
+tt0088847,The Breakfast Club,1985,"Comedy,Drama",170
+tt0091763,Platoon,1986,"Drama,War",167
+tt6146586,John Wick: Chapter 3 - Parabellum,2019,"Action,Crime,Drama",88
+tt0217869,Unbreakable,2000,"Drama,Mystery,Sci-Fi",102
+tt12361974,Zack Snyder's Justice League,2021,"Action,Adventure,Fantasy",138
+tt1014759,Alice in Wonderland,2010,"Adventure,Family,Fantasy",175
+tt0105695,Unforgiven,1992,"Drama,Western",101
+tt0375679,Crash,2004,"Crime,Drama,Thriller",97
+tt3480822,Black Widow,2021,"Action,Adventure,Sci-Fi",161
+tt0083866,E.T. the Extra-Terrestrial,1982,"Adventure,Family,Sci-Fi",172
+tt1302006,The Irishman,2019,"Biography,Crime,Drama",99
+tt0831387,Godzilla,2014,"Action,Adventure,Sci-Fi",141
+tt0119174,The Game,1997,"Drama,Mystery,Thriller",102
+tt0315327,Bruce Almighty,2003,"Comedy,Fantasy",128
+tt0163651,American Pie,1999,Comedy,173
+tt8772262,Midsommar,2019,"Drama,Horror,Mystery",173
+tt0369339,Collateral,2004,"Action,Crime,Drama",156
+tt0086879,Amadeus,1984,"Biography,Drama,Music",142
+tt0110475,The Mask,1994,"Comedy,Crime,Fantasy",163
+tt0455944,The Equalizer,2014,"Action,Crime,Thriller",142
+tt1245492,This Is the End,2013,"Comedy,Fantasy",116
+tt1690953,Despicable Me 2,2013,"Adventure,Animation,Comedy",163
+tt1399103,Transformers: Dark of the Moon,2011,"Action,Adventure,Comedy",102
+tt0363771,"The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",2005,"Adventure,Family,Fantasy",142
+tt1055369,Transformers: Revenge of the Fallen,2009,"Action,Adventure,Sci-Fi",82
+tt0265086,Black Hawk Down,2001,"Action,Drama,History",95
+tt0099674,The Godfather Part III,1990,"Crime,Drama",81
+tt0232500,The Fast and the Furious,2001,"Action,Crime,Thriller",81
+tt1517451,A Star Is Born,2018,"Drama,Music,Romance",87
+tt10648342,Thor: Love and Thunder,2022,"Action,Adventure,Comedy",125
+tt8367814,The Gentlemen,2019,"Action,Crime",126
+tt6334354,The Suicide Squad,2021,"Action,Adventure,Comedy",106
+tt1060277,Cloverfield,2008,"Action,Horror,Sci-Fi",140
+tt6791350,Guardians of the Galaxy Vol. 3,2023,"Action,Adventure,Comedy",132
+tt0840361,The Town,2010,"Crime,Drama,Thriller",118
+tt1282140,Easy A,2010,"Comedy,Drama,Romance",110
+tt2381249,Mission: Impossible - Rogue Nation,2015,"Action,Adventure,Thriller",163
+tt0104431,Home Alone 2: Lost in New York,1992,"Adventure,Comedy,Crime",118
+tt0361862,The Machinist,2004,"Drama,Thriller",114
+tt0109686,Dumb and Dumber,1994,Comedy,87
+tt1905041,Fast & Furious 6,2013,"Action,Thriller",156
+tt0337978,Live Free or Die Hard,2007,"Action,Thriller",88
+tt0079470,Monty Python's Life of Brian,1979,Comedy,178
+tt0405094,The Lives of Others,2006,"Drama,Mystery,Thriller",125
+tt0181852,Terminator 3: Rise of the Machines,2003,"Action,Sci-Fi",167
+tt2820852,Furious 7,2015,"Action,Thriller",166
+tt0349903,Ocean's Twelve,2004,"Crime,Thriller",81
+tt0118971,The Devil's Advocate,1997,"Drama,Fantasy,Mystery",136
+tt2294449,22 Jump Street,2014,"Action,Comedy,Crime",123
+tt7784604,Hereditary,2018,"Drama,Horror,Mystery",109
+tt0147800,10 Things I Hate About You,1999,"Comedy,Drama,Romance",141
+tt1596343,Fast Five,2011,"Action,Crime,Thriller",140
+tt0112864,Die Hard with a Vengeance,1995,"Action,Adventure,Thriller",117
+tt0096895,Batman,1989,"Action,Adventure",154
+tt0493464,Wanted,2008,"Action,Crime,Thriller",175
+tt0120912,Men in Black II,2002,"Action,Adventure,Comedy",139
+tt0117571,Scream,1996,"Horror,Mystery",89
+tt3521164,Moana,2016,"Adventure,Animation,Comedy",96
+tt2582846,The Fault in Our Stars,2014,"Drama,Romance",180
+tt0119094,Face/Off,1997,"Action,Crime,Sci-Fi",179
+tt1542344,127 Hours,2010,"Biography,Drama",89
+tt1587310,Maleficent,2014,"Action,Adventure,Drama",123
+tt2194499,About Time,2013,"Comedy,Drama,Fantasy",89
+tt0454848,Inside Man,2006,"Crime,Drama,Mystery",98
+tt0317919,Mission: Impossible III,2006,"Action,Adventure,Thriller",153
+tt0230600,The Others,2001,"Horror,Mystery,Thriller",138
+tt1190080,2012,2009,"Action,Adventure,Sci-Fi",111
+tt2948372,Soul,2020,"Adventure,Animation,Comedy",177
+tt9032400,Eternals,2021,"Action,Adventure,Fantasy",120
+tt0096283,My Neighbor Totoro,1988,"Animation,Comedy,Family",110
+tt1453405,Monsters University,2013,"Adventure,Animation,Comedy",106
+tt1632708,Friends with Benefits,2011,"Comedy,Romance",150
+tt0111257,Speed,1994,"Action,Adventure,Thriller",88
+tt0166924,Mulholland Drive,2001,"Drama,Mystery,Thriller",96
+tt1706620,Snowpiercer,2013,"Action,Sci-Fi,Thriller",171
+tt2737304,Bird Box,2018,"Horror,Mystery,Sci-Fi",143
+tt0094721,Beetlejuice,1988,"Comedy,Fantasy",136
+tt0328107,Man on Fire,2004,"Action,Crime,Drama",156
+tt0091042,Ferris Bueller's Day Off,1986,Comedy,107
+tt4912910,Mission: Impossible - Fallout,2018,"Action,Adventure,Thriller",124
+tt1490017,The Lego Movie,2014,"Action,Adventure,Animation",167
+tt0388795,Brokeback Mountain,2005,"Drama,Romance",173
+tt0286106,Signs,2002,"Drama,Mystery,Sci-Fi",142
+tt0120663,Eyes Wide Shut,1999,"Drama,Mystery,Thriller",164
+tt0448115,Shazam!,2019,"Action,Adventure,Comedy",94
+tt1409024,Men in Black³,2012,"Action,Adventure,Comedy",152
+tt0162661,Sleepy Hollow,1999,"Fantasy,Horror,Mystery",153
+tt0343660,50 First Dates,2004,"Comedy,Drama,Romance",145
+tt0120755,Mission: Impossible II,2000,"Action,Adventure,Thriller",118
+tt0964517,The Fighter,2010,"Action,Biography,Drama",99
+tt0317740,The Italian Job,2003,"Action,Crime,Thriller",146
+tt0408236,Sweeney Todd: The Demon Barber of Fleet Street,2007,"Drama,Horror,Musical",110
+tt0443543,The Illusionist,2006,"Drama,Fantasy,Mystery",89
+tt0113497,Jumanji,1995,"Adventure,Comedy,Family",131
+tt0099423,Die Hard 2,1990,"Action,Thriller",89
+tt0081398,Raging Bull,1980,"Biography,Drama,Sport",136
