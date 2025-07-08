@@ -1,4 +1,4 @@
-# Confluent Tableflow Workshop [WIP]
+# Confluent Tableflow Workshop
 
 This repository contains the necessary labs for the Confluent Tableflow workshop. You'll learn how to automatically materialize streaming Kafka data into analytics-ready Iceberg tables using Confluent Tableflow, without writing any ETL code.
 
