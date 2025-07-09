@@ -1,5 +1,5 @@
 <div align="center" padding=25px>
-    <img src="images/confluent.png" width=50% height=100%>
+    <img src="images/confluent.png">
 </div>
 
 # <div align="center">Build Real Time Recommendation Pipeline for E-Commerce website</div>
@@ -43,7 +43,7 @@
 > **Note:** You will create resources during this workshop that will incur costs. When you sign up for a Confluent Cloud account, you will get free credits to use in Confluent Cloud. This will cover the cost of resources created during the workshop. More details on the specifics can be found [here](https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.fm-apac_cd.anz-ai-game-day_id.701Uz00000ea25wIAA&utm_medium=workshop).
 
 <div align="center" padding=25px>
-    <img src="images/billing.png" >
+    <img src="images/billing.png">
 </div>
 
 ***
@@ -57,7 +57,7 @@ Welcome to “Build Real Time Recommendation Pipeline for E-Commerce website”!
 By the end of this workshop, you'll have a clear understanding of how to utilize Confluent Cloud’s features to build a foundation for machine learning recommendation applications, empowering you to transform your streaming data into valuable product suggestions and gain insights.
 
 <div align="center" padding=25px>
-    <img src="images/arc.png" width=90% height=90%>
+    <img src="images/arc.png">
 </div>
 
 ***
