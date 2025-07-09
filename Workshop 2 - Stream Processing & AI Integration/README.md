@@ -29,17 +29,6 @@
     - Log into [Confluent Cloud](https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.fm-apac_cd.anz-ai-game-day_id.701Uz00000ea25wIAA&utm_medium=workshop) and enter your email and password. { To avoid impacting your production Confluent Cloud account, sign up using an email alias (e.g., youremail+workshop@company.com)—this creates a separate account while still sending emails to your main inbox.}
     - Once you have signed up and logged in, click on the menu icon at the upper right hand corner, click on “Billing & payment”, then enter payment details under “Payment details & contacts”. A screenshot of the billing UI is included below.
 
-2. Clone this repo:
-   ```
-   git clone git@github.com:confluentinc/sts-retail-genai-workshop.git
-   ```
-   or
-   ```
-   git clone https://github.com/confluentinc/sts-retail-genai-workshop.git
-   ```
-
-3. Install confluent cloud CLI based on your OS (https://docs.confluent.io/confluent-cli/current/install.html)
-
 > **Note:** You will create resources during this workshop that will incur costs. When you sign up for a Confluent Cloud account, you will get free credits to use in Confluent Cloud. This will cover the cost of resources created during the workshop. More details on the specifics can be found [here](https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.fm-apac_cd.anz-ai-game-day_id.701Uz00000ea25wIAA&utm_medium=workshop).
 
 <div align="center" padding=25px>
