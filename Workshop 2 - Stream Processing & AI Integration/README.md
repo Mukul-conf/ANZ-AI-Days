@@ -1,5 +1,5 @@
 <div align="center" padding=25px>
-    <img src="images/confluent.png" width=50% height=50%>
+    <img src="images/confluent.png" width=50% height=200% >
 </div>
 
 # <div align="center">Build Real Time Recommendation Pipeline for E-Commerce website</div>
@@ -25,24 +25,14 @@
 <br>
 
 1. Create a Confluent Cloud Account.
-    - Sign up for a Confluent Cloud account [here](https://www.confluent.io/confluent-cloud/tryfree/).
+    - Sign up for a Confluent Cloud account [here](https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.fm-apac_cd.anz-ai-game-day_id.701Uz00000ea25wIAA&utm_medium=workshop).
+    - Log into [Confluent Cloud](https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.fm-apac_cd.anz-ai-game-day_id.701Uz00000ea25wIAA&utm_medium=workshop) and enter your email and password. { To avoid impacting your production Confluent Cloud account, sign up using an email alias (e.g., youremail+workshop@company.com)—this creates a separate account while still sending emails to your main inbox.}
     - Once you have signed up and logged in, click on the menu icon at the upper right hand corner, click on “Billing & payment”, then enter payment details under “Payment details & contacts”. A screenshot of the billing UI is included below.
 
-2. Clone this repo:
-   ```
-   git clone git@github.com:confluentinc/sts-retail-genai-workshop.git
-   ```
-   or
-   ```
-   git clone https://github.com/confluentinc/sts-retail-genai-workshop.git
-   ```
-
-3. Install confluent cloud CLI based on your OS (https://docs.confluent.io/confluent-cli/current/install.html)
-
-> **Note:** You will create resources during this workshop that will incur costs. When you sign up for a Confluent Cloud account, you will get free credits to use in Confluent Cloud. This will cover the cost of resources created during the workshop. More details on the specifics can be found [here](https://www.confluent.io/confluent-cloud/tryfree/).
+> **Note:** You will create resources during this workshop that will incur costs. When you sign up for a Confluent Cloud account, you will get free credits to use in Confluent Cloud. This will cover the cost of resources created during the workshop. More details on the specifics can be found [here](https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.fm-apac_cd.anz-ai-game-day_id.701Uz00000ea25wIAA&utm_medium=workshop).
 
 <div align="center" padding=25px>
-    <img src="images/billing.png" width=75% height=75%>
+    <img src="images/billing.png">
 </div>
 
 ***
@@ -56,7 +46,7 @@ Welcome to “Build Real Time Recommendation Pipeline for E-Commerce website”!
 By the end of this workshop, you'll have a clear understanding of how to utilize Confluent Cloud’s features to build a foundation for machine learning recommendation applications, empowering you to transform your streaming data into valuable product suggestions and gain insights.
 
 <div align="center" padding=25px>
-    <img src="images/arc.png" width=90% height=90%>
+    <img src="images/arc.png">
 </div>
 
 ***
@@ -67,7 +57,7 @@ By the end of this workshop, you'll have a clear understanding of how to utilize
 1. Log into [Confluent Cloud](https://confluent.cloud) and enter your email and password.
 
 <div align="center" padding=25px>
-    <img src="images/login.png" width=50% height=50%>
+    <img src="images/login.png">
 </div>
 
 2. If you are logging in for the first time, you will see a self-guided wizard that walks you through spinning up a cluster. Please minimize this as you will walk through those steps in this workshop. 
@@ -83,7 +73,7 @@ An environment contains clusters and its deployed components such as Apache Flin
 >**Note:** There is a *default* environment ready in your account upon account creation. You can use this *default* environment for the purpose of this workshop if you do not wish to create an additional environment.
 
 <div align="center" padding=25px>
-    <img src="images/environment.png" width=50% height=50%>
+    <img src="images/environment.png">
 </div>
 
 2. Now that you have an environment, click **Create Cluster**. 
@@ -93,7 +83,7 @@ An environment contains clusters and its deployed components such as Apache Flin
 3. Chose the **Basic** cluster type. 
 
 <div align="center" padding=25px>
-    <img src="images/cluster-type.png" width=90% height=90%>
+    <img src="images/cluster-type.png">
 </div>
 
 4. Click **Begin Configuration**. 
@@ -101,7 +91,7 @@ An environment contains clusters and its deployed components such as Apache Flin
 6. Specify a **Cluster Name**. For the purpose of this lab, any name will work here. 
 
 <div align="center" padding=25px>
-    <img src="images/aws-create-cluster.png" width=70% height=70%>
+    <img src="images/aws-create-cluster.png" >
 </div>
 
 7. View the associated *Configuration & Cost*, *Usage Limits*, and *Uptime SLA* information before launching. 
@@ -114,18 +104,18 @@ An environment contains clusters and its deployed components such as Apache Flin
 1. On the navigation menu, select **Flink** and click **Create Compute Pool**.
 
 <div align="center" padding=25px>
-    <img src="images/create-flink-pool-1.png" width=60% height=60%>
+    <img src="images/create-flink-pool-1.png">
 </div>
 
 2. Select **Region** and then **Continue**. (You have to use the region where the cluster was created in the previous step)
 <div align="center" padding=25px>
-    <img src="images/aws-create-flink-pool-1.png" width=60% height=60%>
+    <img src="images/aws-create-flink-pool-1.png">
 </div>
 
 3. Name you Pool Name and set the capacity units (CFUs) to **10**. Click **Finish**.
 
 <div align="center" padding=25px>
-    <img src="images/aws-create-flink-pool-2.png" width=60% height=60%>
+    <img src="images/aws-create-flink-pool-2.png">
 </div>
 
 > **Note:** The capacity of a compute pool is measured in CFUs. Compute pools expand and shrink automatically based on the resources required by the statements using them. A compute pool without any running statements scale down to zero. The maximum size of a compute pool is configured during creation. 
@@ -135,19 +125,19 @@ An environment contains clusters and its deployed components such as Apache Flin
 5. Change your workspace name by clicking **settings button**. Click **Save changes** after you update the workspace name.
 
 <div align="center" padding=25px>
-    <img src="images/aws-flink-workspace-1.png" width=90% height=90%>
+    <img src="images/aws-flink-workspace-1.png">
 </div>
 
 6. Set the Catalog as your environment name.
 
 <div align="center" padding=25px>
-    <img src="images/aws-flink-workspace-2.png" width=60% height=60%>
+    <img src="images/aws-flink-workspace-2.png">
 </div>
 
 7. Set the Database as your cluster name.
 
 <div align="center" padding=25px>
-    <img src="images/aws-flink-workspace-3.png" width=60% height=60%>
+    <img src="images/aws-flink-workspace-3.png">
 </div>
 
 ***
@@ -163,7 +153,7 @@ An environment contains clusters and its deployed components such as Apache Flin
 4. Enter **shoes_orders** as the topic name, **3** as the number of partitions, skip the data contract and then click **Create with defaults**.'
 
 <div align="center" padding=25px>
-    <img src="images/create-topic.png" width=50% height=50%>
+    <img src="images/create-topic.png">
 </div>
 
 5. Repeat the previous step and create a second topic name **shoes_clickstream** and **3** as the number of partitions and skip the data contract.
@@ -181,14 +171,14 @@ An environment contains clusters and its deployed components such as Apache Flin
 3. Click **Create Key** in order to create your first API Key. If you have an existing API Key, click **+ Add Key** to create another API Key.
 
 <div align="center" padding=25px>
-    <img src="images/create-apikey-updated.png" width=75% height=75%>
+    <img src="images/create-apikey-updated.png">
 </div>
 
 4. Select **My account** and then click **Next**.
 5. Enter a description for your API Key (e.g. `API Key to source data from connectors`).
 
 <div align="center" padding=25px>
-    <img src="images/create-apikey-download.png" width=75% height=75%>
+    <img src="images/create-apikey-download.png">
 </div>
 
 6. After creating and saving the API key, you will see this API key in the Confluent Cloud UI in the *API Keys* table. If you don't see the API key populate right away, try refreshing your browser.
@@ -205,7 +195,7 @@ The first connector will send sample shoe orders data to the **shoes_orders** to
 3. Now click on the **Datagen Source** icon.
 
 <div align="center" padding=25px>
-    <img src="images/connectors.png" width=75% height=75%>
+    <img src="images/connectors.png">
 </div>
 
 4. Click the **Additional Configuration** link.
@@ -228,11 +218,11 @@ The first connector will send sample shoe orders data to the **shoes_orders** to
 <br>
 
 <div align="center" padding=25px>
-    <img src="images/datagen-config-1.png" width=75% height=75%>
+    <img src="images/datagen-config-1.png">
 </div>
 
 <div align="center" padding=25px>
-    <img src="images/datagen-config-2.png" width=75% height=75%>
+    <img src="images/datagen-config-2.png">
 </div>
 
 6. Continue through the setup wizard and click **Continue** to launch the wizard.
@@ -261,7 +251,7 @@ The first connector will send sample shoe orders data to the **shoes_orders** to
 9. Review your selections and then click **Launch**.
 
 
-> **Note:** It may take a few moments for the connectors to launch. Check the status and when both are ready, the status should show *running*. <br> <div align="center"><img src="images/running-connectors.png" width=75% height=75%></div>
+> **Note:** It may take a few moments for the connectors to launch. Check the status and when both are ready, the status should show *running*. <br> <div align="center"><img src="images/running-connectors.png"></div>
 
 > **Note:** If the connector fails, there are a few different ways to troubleshoot the error:
 > * Click on the *Connector Name*. You will see a play and pause button on this page. Click on the play button.
@@ -275,13 +265,13 @@ The first connector will send sample shoe orders data to the **shoes_orders** to
 12. Click on a row in the table and you should see something like this:
 
 <div align="center">
-    <img src="images/message-view-1.png" width=90% height=90%>
+    <img src="images/message-view-1.png">
 </div>
 
 
 ## <a name="step-7"></a>Create MongoDB Source Connector for shoes and customers details
 
-The next step is to get initial shoes and customer data from MongoDB.
+The next step is to get the initial shoes and customer data from MongoDB.
 
 1. First, navigate to your workshop cluster.
 2. Next, click on the **Connectors** link on the navigation menu.
@@ -289,7 +279,7 @@ The next step is to get initial shoes and customer data from MongoDB.
 4. Now search for mongo 
 
 <div align="center" padding=25px>
-    <img src="images/mongo-1.png" width=75% height=75%>
+    <img src="images/mongo-1.png">
 </div>
 
 5. Enter the following configuration details in the setup wizard. The remaining fields can be left blank or default.
@@ -318,7 +308,7 @@ The next step is to get initial shoes and customer data from MongoDB.
 6. Review your selections and then click **Launch**.
 
 
-> **Note:** It may take a few moments for the connectors to launch. Check the status and when both are ready, the status should show *running*. <br> <div align="center"><img src="images/mongo-2.png" width=75% height=75%></div>
+> **Note:** It may take a few moments for the connectors to launch. Check the status and when both are ready, the status should show *running*. <br> <div align="center"><img src="images/mongo-2.png"></div>
 
 ## <a name="step-8"></a>Stream Processing with Flink for getting trendy products, customer segements, and combine the records into one topic
 
@@ -464,41 +454,41 @@ CREATE TABLE personalized_recommendation_input AS
    Navigate to Amazon Bedrock, Model Catalog, Filter by Meta and search for LLama 3 8B Instruct.
    
 <div align="center" padding=25px>
-    <img src="images/bedrock-Llama-access.png" width=75% height=75%>
+    <img src="images/bedrock-Llama-access.png">
 </div> 
 
  
 2. Use confluent UI to create connection with bedrock. Navigate to integrations under environment.
 
 <div align="center" padding=25px>
-    <img src="images/env-integrations.png" width=75% height=75%>
+    <img src="images/env-integrations.png">
 </div>
 
 3. Navigate to connections and add connections.
 
 <div align="center" padding=25px>
-    <img src="images/integrations-connection.png" width=75% height=75%>
+    <img src="images/integrations-connection.png">
 </div>
 
 4. Copy the AWS Credentials from the AWS dashboard.
 
 <div align="center" padding=25px>
-    <img src="images/aws-creds.png" width=75% height=75%>
+    <img src="images/aws-creds.png">
 </div>
 
->**Note:** Alternatively, you can create a new AWS user and assign the AmazonBedrockFullAccess policy and generate the Key and secret for this user. <br> <div align="center"><img src="images/aws-bedrock-creds.png" width=75% height=75%></div>
+>**Note:** Alternatively, you can create a new AWS user and assign the AmazonBedrockFullAccess policy and generate the Key and secret for this user. <br> <div align="center"><img src="images/aws-bedrock-creds.png"></div>
 
 5. Select Bedrock, add above AWS credentials and Bedrock endpoint URL:
     https://bedrock-runtime.us-east-1.amazonaws.com/model/meta.llama3-8b-instruct-v1:0/invoke
     
 <div align="center" padding=25px>
-    <img src="images/bedrock-int.png" width=75% height=75%>
+    <img src="images/bedrock-int.png">
 </div>
 
 6. After creating the connection, validate if the integration is created successfully.
 
 <div align="center" padding=25px>
-    <img src="images/bedrock-int-validate.png" width=75% height=75%>
+    <img src="images/bedrock-int-validate.png">
 </div>
 
 7. Use the same connection to create a model in flink.
@@ -537,7 +527,7 @@ LATERAL TABLE(
     );  
 ```
 
-<div align="center"><img src="images/final-message.png" width=75% height=75%></div>
+<div align="center"><img src="images/final-message.png"></div>
 
 ## <a name="step-10"></a> Embedding Generation using Flink & Bedrock (Optional)
 
@@ -546,28 +536,28 @@ The next step is to generate embeddings using Titan Model in AWS Bedrock.
 1. First, navigate to AWS Bedrock Model Catalog and enable access to the Titan Model.
    
 <div align="center" padding=25px>
-    <img src="images/aws-bedrock-titan.png" width=75% height=75%>
+    <img src="images/aws-bedrock-titan.png">
 </div>
 
 2. Copy the AWS Credentials from the AWS dashboard.
 
 <div align="center" padding=25px>
-    <img src="images/aws-creds.png" width=75% height=75%>
+    <img src="images/aws-creds.png" >
 </div>
 
->**Note:** Alternatively, you can create a new AWS user and assign the AmazonBedrockFullAccess policy and generate the Key and secret for this user. <br> <div align="center"><img src="images/aws-bedrock-creds.png" width=75% height=75%></div>
+>**Note:** Alternatively, you can create a new AWS user and assign the AmazonBedrockFullAccess policy and generate the Key and secret for this user. <br> <div align="center"><img src="images/aws-bedrock-creds.png"></div>
 
 3. Navigate to Environments -> Integrations -> Connections and create a Bedrock integration. 
    Endpoint: https://bedrock-runtime.us-east-1.amazonaws.com/model/amazon.titan-embed-text-v2:0/invoke
  
 <div align="center" padding=25px>
-    <img src="images/bedrock-titan.png" width=75% height=75%>
+    <img src="images/bedrock-titan.png">
 </div>
 
 4. Validate if the connection is created successfully.
 
 <div align="center" padding=25px>
-    <img src="images/aws-titan-validate.png" width=75% height=75%>
+    <img src="images/aws-titan-validate.png">
 </div>
 
 5. Use the same connection to create a model in Flink.
@@ -590,7 +580,7 @@ SELECT `user_id`, response from(
 SELECT * from shoes_clickstream, LATERAL TABLE(ML_PREDICT('RECOMMEND_BEDROCK_TITAN', `user_id`)));
 ```
 <div align="center" padding=25px>
-    <img src="images/final-embeddings.png" width=75% height=75%>
+    <img src="images/final-embeddings.png" >
 </div>
 
 ## <a name="step-11"></a>Clean Up Resources
@@ -599,22 +589,22 @@ Deleting the resources you created during this workshop will prevent you from in
 
 1. The first item to delete is the Apache Flink Compute Pool. Select the **Delete** button under **Actions** and enter the **Application Name** to confirm the deletion. 
 <div align="center">
-    <img src="images/flink-delete-compute-pool.png" width=75% height=75%>
+    <img src="images/flink-delete-compute-pool.png">
 </div>
 
 2. Next, delete all the connectors, Navigate to the **Connectors** tab and select each connector. In the settings tab, you will see a **trash** icon on the bottom of the page. Click the icon and enter the **Connector Name**.
 <div align="center">
-    <img src="images/delete-connector.png" width=75% height=75%>
+    <img src="images/delete-connector.png">
 </div>
 
 3. Next, under **Cluster Settings**, select the **Delete Cluster** button at the bottom. Enter the **Cluster Name** and select **Confirm**. 
 <div align="center">
-    <img src="images/delete-cluster.png" width=75% height=75%>
+    <img src="images/delete-cluster.png">
 </div>
 
 4. Finally, to remove all resource pertaining to this workshop, delete the environment.
 <div align="center">
-    <img src="images/delete-environment.png" width=75% height=75%>
+    <img src="images/delete-environment.png">
 </div>
 *** 
 
