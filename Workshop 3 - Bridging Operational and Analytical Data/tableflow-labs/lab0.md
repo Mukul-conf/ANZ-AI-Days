@@ -3,7 +3,7 @@
 1. Log into [Confluent Cloud](https://confluent.cloud) and enter your email and password.
 
 <div align="center" padding=25px>
-    <img src="img/login.png" width=50% height=50%>
+    <img src="img/login.png">
 </div>
 
 2. If you are logging in for the first time, you will see a self-guided wizard that walks you through spinning up a cluster. Please minimize this as you will walk through those steps in this workshop. 
@@ -19,7 +19,7 @@ An environment contains clusters and its deployed components such as Apache Flin
 >**Note:** There is a *default* environment ready in your account upon account creation. You can use this *default* environment for the purpose of this workshop if you do not wish to create an additional environment.
 
 <div align="center" padding=25px>
-    <img src="img/environment.png" width=50% height=50%>
+    <img src="img/environment.png">
 </div>
 
 2. Now that you have an environment, click **Create Cluster**. 
@@ -29,7 +29,7 @@ An environment contains clusters and its deployed components such as Apache Flin
 3. Chose the **Basic** cluster type. 
 
 <div align="center" padding=25px>
-    <img src="img/cluster-type.png" width=50% height=50%>
+    <img src="img/cluster-type.png">
 </div>
 
 4. Click **Begin Configuration**. 
@@ -37,7 +37,7 @@ An environment contains clusters and its deployed components such as Apache Flin
 6. Specify a **Cluster Name**. For the purpose of this lab, any name will work here. 
 
 <div align="center" padding=25px>
-    <img src="img/create-cluster.png" width=50% height=50%>
+    <img src="img/create-cluster.png">
 </div>
 
 7. View the associated *Configuration & Cost*, *Usage Limits*, and *Uptime SLA* information before launching. 
@@ -56,7 +56,7 @@ An environment contains clusters and its deployed components such as Apache Flin
 4. Enter **customers** as the topic name, **3** as the number of partitions, skip the data contract and then click **Create with defaults**.'
 
 <div align="center" padding=25px>
-    <img src="img/create-topic.png" width=50% height=50%>
+    <img src="img/create-topic.png">
 </div>
 
 5. Repeat the previous step and create a second topic name **clicks** and **3** as the number of partitions and skip the data contract.
@@ -73,12 +73,12 @@ Deleting the resources you created during this workshop will prevent you from in
 
 3. First, under **Cluster Settings**, select the **Delete Cluster** button at the bottom. Enter the **Cluster Name** and select **Confirm**. 
 <div align="center">
-    <img src="img/delete-cluster.png" width=50% height=50%>
+    <img src="img/delete-cluster.png">
 </div>
 
 4. To remove all resource pertaining to this workshop, delete the environment **workshop**.
 <div align="center">
-    <img src="img/delete-environment.png" width=50% height=50%>
+    <img src="img/delete-environment.png">
 </div>
 *** 
 
