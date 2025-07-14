@@ -602,7 +602,7 @@ Deleting the resources you created during this workshop will prevent you from in
     <img src="images/delete-cluster.png">
 </div>
 
-4. Finally, to remove all resource pertaining to this workshop, delete the environment.
+4. Finally, to remove all resources pertaining to this workshop, delete the environment.
 <div align="center">
     <img src="images/delete-environment.png">
 </div>
