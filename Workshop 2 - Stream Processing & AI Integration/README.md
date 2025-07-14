@@ -290,10 +290,10 @@ The next step is to get the initial shoes and customer data from MongoDB.
 | Topic prefix                       | mongo                        |
 | API Key                            | [*from step 5*](#step-5)     |
 | API Secret                         | [*from step 5*](#step-5)     |
-| Connection host                    | < MongoDB Server URL >       |
-| Connection user                    | < MongoDB Username >         |
-| Connection password                | < MongoDB Password >         |
-| Database name                      | < MongoDB Database Name >    |
+| Connection host                    | demo.t3dlh.mongodb.net       |
+| Connection user                    | flink_workshop               |
+| Connection password                | CHqhMbEZ7eAy66iZ             |
+| Database name                      | demo                         |
 | Output kakfa record value format   | AVRO                         |
 | Publish full document only         | true                         |
 | Startup mode                       | copy_existing                |
