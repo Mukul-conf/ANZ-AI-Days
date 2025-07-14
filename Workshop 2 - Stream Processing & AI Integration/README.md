@@ -46,7 +46,7 @@ Welcome to “Build Real Time Recommendation Pipeline for E-Commerce website”!
 By the end of this workshop, you'll have a clear understanding of how to utilize Confluent Cloud’s features to build a foundation for machine learning recommendation applications, empowering you to transform your streaming data into valuable product suggestions and gain insights.
 
 <div align="center" padding=25px>
-    <img src="images/arc.png">
+    <img src="images/Arc.png">
 </div>
 
 ***
