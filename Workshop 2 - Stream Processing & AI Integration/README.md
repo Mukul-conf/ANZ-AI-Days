@@ -529,7 +529,10 @@ LATERAL TABLE(
 
 <div align="center"><img src="images/final-message.png"></div>
 
-## <a name="step-10"></a> Embedding Generation using Flink & Bedrock (Optional)
+
+
+ <details>
+      <summary><a name="step-10"></a> Embedding Generation using Flink & Bedrock (Optional)</summary>
 
 The next step is to generate embeddings using Titan Model in AWS Bedrock.
 
@@ -582,6 +585,7 @@ SELECT * from shoes_clickstream, LATERAL TABLE(ML_PREDICT('RECOMMEND_BEDROCK_TIT
 <div align="center" padding=25px>
     <img src="images/final-embeddings.png" >
 </div>
+ </details>
 
 ## <a name="step-11"></a>Clean Up Resources
 
