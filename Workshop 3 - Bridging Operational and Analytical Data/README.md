@@ -4,32 +4,10 @@ This repository contains the necessary labs for the Confluent Tableflow workshop
 
 During the workshop, you'll create a Confluent Cloud environment, configure AWS S3 storage, set up Glue Data Catalog integration, and query streaming data using Amazon Athena.
 
-## General Requirements
+## Prerequisites
 
 * **Confluent Cloud Account** - Free tier available with $400 credits
 * **AWS Account** - With permissions to create S3 buckets, IAM policies, and IAM roles
-* **Git CLI** - To clone this repository
-
-<details>
-<summary>Installing Git on MAC</summary>
-
-Install `git` by running:
-
-```bash
-brew install git
-```
-
-</details>
-
-<details>
-<summary>Installing Git on Windows</summary>
-
-Install `git` by running:
-
-```powershell
-winget install --id Git.Git -e
-```
-</details> 
 
 ## Workshop Structure
 
@@ -53,19 +31,6 @@ This workshop consists of 3 hands-on labs:
 - Query materialized Iceberg tables using Amazon Athena
 - Explore analytics capabilities on streaming data
 
-## Getting Started
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/Mukul-conf/ANZ-AI-Days.git
-   cd Workshop 3 - Bridging Operational and Analytical Data/
-   ```
-
-2. **Start with Lab 0:**
-   Begin with [Lab 0](tableflow-labs/lab0.md) to set up your Confluent Cloud environment and create sample data.
-
-3. **Follow the Lab Sequence:**
-   Complete the labs in order (0 → 1 → 2) as each builds upon the previous one.
 
 ## What You'll Learn
 
