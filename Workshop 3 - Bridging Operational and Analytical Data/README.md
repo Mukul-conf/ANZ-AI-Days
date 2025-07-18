@@ -57,8 +57,8 @@ This workshop consists of 3 hands-on labs:
 
 1. **Clone the Repository:**
    ```bash
-   git clone <repo_url>
-   cd anz-tableflow-workshop
+   git clone https://github.com/Mukul-conf/ANZ-AI-Days.git
+   cd Workshop 3 - Bridging Operational and Analytical Data/
    ```
 
 2. **Start with Lab 0:**
