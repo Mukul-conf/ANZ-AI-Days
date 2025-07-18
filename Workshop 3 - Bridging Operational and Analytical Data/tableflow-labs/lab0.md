@@ -67,29 +67,3 @@ An environment contains clusters and its deployed components such as Apache Flin
 
 ***
 
-## <a name="step-4"></a>Clean Up Resources
-
-Deleting the resources you created during this workshop will prevent you from incurring additional charges. 
-
-3. First, under **Cluster Settings**, select the **Delete Cluster** button at the bottom. Enter the **Cluster Name** and select **Confirm**. 
-<div align="center">
-    <img src="img/delete-cluster.png">
-</div>
-
-4. To remove all resource pertaining to this workshop, delete the environment **workshop**.
-<div align="center">
-    <img src="img/delete-environment.png">
-</div>
-*** 
-
-## <a name="step-5"></a>Confluent Resources and Further Testing
-
-Here are some links to check out if you are interested in further testing:
-- [Confluent Cloud Documentation](https://docs.confluent.io/cloud/current/overview.html)
-- [Apache Flink 101](https://developer.confluent.io/courses/apache-flink/intro/)
-- [Stream Processing with Confluent Cloud for Apache Flink](https://docs.confluent.io/cloud/current/flink/index.html)
-- [Flink SQL Reference](https://docs.confluent.io/cloud/current/flink/reference/overview.html)
-- [Flink SQL Functions](https://docs.confluent.io/cloud/current/flink/reference/functions/overview.html)
-- [Confluent tableflow](https://docs.confluent.io/cloud/current/topics/tableflow/overview.html)
-
-***
