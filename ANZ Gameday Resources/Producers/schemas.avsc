@@ -1,0 +1,210 @@
+{
+  "users_behaviour": {
+    "type": "record",
+    "name": "Users_behaviour",
+    "namespace": "com.example.streaming",
+    "fields": [
+      {
+        "name": "behavior_id",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "user_id",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "movie_id",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "action_type",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "timestamp",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "device_type",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "duration_sec",
+        "type": "int",
+        "default": null
+      }
+    ]
+  },
+  "users": {
+    "type": "record",
+    "name": "Users",
+    "namespace": "com.example.streaming",
+    "fields": [
+      {
+        "name": "user_id",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "username",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "age",
+        "type": "int",
+        "default": null
+      },
+      {
+        "name": "gender",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "country",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "city",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "address",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "occupation",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "join_date",
+        "type": "string",
+        "default": ""
+      }
+    ]
+  },
+  "imdb_synthetic_reviews": {
+    "type": "record",
+    "name": "Imdb_synthetic_reviews",
+    "namespace": "com.example.streaming",
+    "fields": [
+      {
+        "name": "review_id",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "user_id",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "username",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "movie_id",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "movie_title",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "movie_year",
+        "type": "int",
+        "default": null
+      },
+      {
+        "name": "movie_genres",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "movie_avg_rating",
+        "type": "double",
+        "default": null
+      },
+      {
+        "name": "movie_num_votes",
+        "type": "int",
+        "default": null
+      },
+      {
+        "name": "user_rating",
+        "type": "int",
+        "default": null
+      },
+      {
+        "name": "review_text",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "review_date",
+        "type": "string",
+        "default": ""
+      }
+    ]
+  },
+  "movies": {
+    "type": "record",
+    "name": "Movies",
+    "namespace": "com.example.streaming",
+    "fields": [
+      {
+        "name": "movie_id",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "release_year",
+        "type": "int",
+        "default": null
+      },
+      {
+        "name": "genre",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "duration",
+        "type": "int",
+        "default": null
+      },
+      {
+        "name": "imdb_rating",
+        "type": "string",
+        "default": ""
+      }
+    ]
+  }
+}
