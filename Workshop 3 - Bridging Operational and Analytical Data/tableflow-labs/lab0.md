@@ -46,24 +46,40 @@ An environment contains clusters and its deployed components such as Apache Flin
 ***
 
 ## <a name="step-3"></a>Creates Topics
+>**Note:** For this workshop, we want to have a topic with schema, so we will create it using the Sample Data (Datagen) connector.RetryClaude can make mistakes. Please double-check responses.
 
-1. On the navigation menu, you will see **Cluster Overview**. 
+1. On the navigation menu, select **Connectors** and click **Add plugin**.
 
-> **Note:** This section shows Cluster Metrics, such as Throughput and Storage. This page also shows the number of Topics, Partitions, Connectors, and ksqlDB Applications.
-
-2. Click on **Cluster Settings**. This is where you can find your *Cluster ID, Bootstrap Server, Cloud Details, Cluster Type,* and *Capacity Limits*.
-3. On the same navigation menu, select **Topics** and click **Create Topic**. 
-4. Enter **customers** as the topic name, **3** as the number of partitions, skip the data contract and then click **Create with defaults**.'
+2. In the connector catalog, locate and click on **Sample Data** connector (Datagen Source).
 
 <div align="center" padding=25px>
-    <img src="img/create-topic.png">
+    <img src="img/data_gen_connector.png" >
 </div>
 
-5. Repeat the previous step and create a second topic name **clicks** and **3** as the number of partitions and skip the data contract.
+3. Click **Get started** to launch the Sample Data connector setup.
 
-> **Note:** Topics have many configurable parameters. A complete list of those configurations for Confluent Cloud can be found [here](https://docs.confluent.io/cloud/current/topics/overview.html). If you are interested in viewing the default configurations, you can view them in the Topic Summary on the right side. 
+4. In the "Launch Sample Data" dialog:
+   - Select **Users**
+   - Click **Launch**
 
-6. After topic creation, the **Topics UI** allows you to monitor production and consumption throughput metrics and the configuration parameters for your topics. When you begin sending messages to Confluent Cloud, you will be able to view those messages and message schemas.
+<div align="center" padding=25px>
+    <img src="img/sample_data_selecting_users.png">
+</div>
+
+5. The connector will show as launched and begin provisioning.
+
+<div align="center" padding=25px>
+    <img src="img/sample_data_connector_launched.png">
+</div>
+
+6. Navigate to **Topics** in the left menu to verify the **sample_data_users** topic was created with the generated schema and data.
+
+<div align="center" padding=25px>
+    <img src="img/sample_data_topic.png">
+</div>
+
+
+> **Note:** Using the Sample Data connector automatically creates topics with predefined schemas and starts generating realistic test data. This eliminates the need for manual topic creation and provides immediate data flow for testing. The connector generates data continuously, which you can monitor in the Topics UI.
 
 ***
 
