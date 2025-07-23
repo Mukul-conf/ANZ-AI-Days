@@ -5,7 +5,7 @@ A Python script that streams CSV files to Confluent Kafka topics using Avro seri
 ## Prerequisites
 
 ```bash
-pip install confluent-kafka[avro] fastavro
+pip install confluent-kafka fastavro
 ```
 
 ## Configuration
