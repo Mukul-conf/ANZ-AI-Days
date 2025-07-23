@@ -138,7 +138,7 @@ An environment contains clusters and its deployed components such as Apache Flin
 ***
 
 
-## <a name="step-9"></a>Consume final topic and recommend shoes to customers with aws bedrock
+## <a name="step-9"></a>Setting up aws bedrock
 
 1. Enable access to AWS Bedrock LLama 3 8B Instruct model.
    Navigate to Amazon Bedrock, Model Catalog, Filter by Meta and search for LLama 3 8B Instruct.
@@ -195,29 +195,7 @@ WITH (
     );
 ```
 
-8. Use the bedrock model to get shoes/brands recommendation based upon the input gathered in the final topic.
 
-```sql
-SELECT * FROM personalized_recommendation_input, 
-LATERAL TABLE( 
-    ML_PREDICT('RECOMMEND_BEDROCK' ,'Customer Segment:' || customer_segment || 
-    ' , Trending Brands:' || trending_brands || 
-    ' , Trending Products:' || trending_shoes || 
-    ' , \n Craft a concise, engaging message without any input and system level parameters and only give me Recommendation Message, recommending one or two relevant products or brands. Tailor the tone to match the customer’s segment and include a compelling call-to-action to drive engagement. remove any debrock specific headers and give final message which can be shown as a string.')
-    );
-```
-
-```sql
-CREATE TABLE Recommendations AS SELECT customer_id , output FROM personalized_recommendation_input, 
-LATERAL TABLE( 
-    ML_PREDICT('RECOMMEND_BEDROCK' ,'Customer Segment:' || customer_segment || 
-    ' , Trending Brands:' || trending_brands || 
-    ' , Trending Products:' || trending_shoes || 
-    ' , \n Craft a concise, engaging message without any input and system level parameters and only give me Recommendation Message, recommending one or two relevant products or brands. Tailor the tone to match the customer’s segment and include a compelling call-to-action to drive engagement. remove any debrock specific headers and give final message which can be shown as a string.')
-    );  
-```
-
-<div align="center"><img src="images/final-message.png"></div>
 
 
 
