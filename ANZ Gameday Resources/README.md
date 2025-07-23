@@ -138,3 +138,143 @@ An environment contains clusters and its deployed components such as Apache Flin
 ***
 
 
+## <a name="step-9"></a>Consume final topic and recommend shoes to customers with aws bedrock
+
+1. Enable access to AWS Bedrock LLama 3 8B Instruct model.
+   Navigate to Amazon Bedrock, Model Catalog, Filter by Meta and search for LLama 3 8B Instruct.
+   
+<div align="center" padding=25px>
+    <img src="images/bedrock-Llama-access.png">
+</div> 
+
+ 
+2. Use confluent UI to create connection with bedrock. Navigate to integrations under environment.
+
+<div align="center" padding=25px>
+    <img src="images/env-integrations.png">
+</div>
+
+3. Navigate to connections and add connections.
+
+<div align="center" padding=25px>
+    <img src="images/integrations-connection.png">
+</div>
+
+4. Copy the AWS Credentials from the AWS dashboard.
+
+<div align="center" padding=25px>
+    <img src="images/aws-creds.png">
+</div>
+
+>**Note:** Alternatively, you can create a new AWS user and assign the AmazonBedrockFullAccess policy and generate the Key and secret for this user. <br> <div align="center"><img src="images/aws-bedrock-creds.png"></div>
+
+5. Select Bedrock, add above AWS credentials and Bedrock endpoint URL:
+    https://bedrock-runtime.us-east-1.amazonaws.com/model/meta.llama3-8b-instruct-v1:0/invoke
+    
+<div align="center" padding=25px>
+    <img src="images/bedrock-int.png">
+</div>
+
+6. After creating the connection, validate if the integration is created successfully.
+
+<div align="center" padding=25px>
+    <img src="images/bedrock-int-validate.png">
+</div>
+
+7. Use the same connection to create a model in flink.
+
+```sql
+CREATE MODEL RECOMMEND_BEDROCK
+INPUT (`text` VARCHAR(2147483647)) 
+OUTPUT (`output` VARCHAR(2147483647)) 
+WITH ( 
+    'bedrock.connection' = 'bedrock-connection', 
+    'bedrock.system_prompt' = 'Generate a personalized product recommendation message',
+    'provider' = 'bedrock', 
+    'task' = 'text_generation' 
+    );
+```
+
+8. Use the bedrock model to get shoes/brands recommendation based upon the input gathered in the final topic.
+
+```sql
+SELECT * FROM personalized_recommendation_input, 
+LATERAL TABLE( 
+    ML_PREDICT('RECOMMEND_BEDROCK' ,'Customer Segment:' || customer_segment || 
+    ' , Trending Brands:' || trending_brands || 
+    ' , Trending Products:' || trending_shoes || 
+    ' , \n Craft a concise, engaging message without any input and system level parameters and only give me Recommendation Message, recommending one or two relevant products or brands. Tailor the tone to match the customer’s segment and include a compelling call-to-action to drive engagement. remove any debrock specific headers and give final message which can be shown as a string.')
+    );
+```
+
+```sql
+CREATE TABLE Recommendations AS SELECT customer_id , output FROM personalized_recommendation_input, 
+LATERAL TABLE( 
+    ML_PREDICT('RECOMMEND_BEDROCK' ,'Customer Segment:' || customer_segment || 
+    ' , Trending Brands:' || trending_brands || 
+    ' , Trending Products:' || trending_shoes || 
+    ' , \n Craft a concise, engaging message without any input and system level parameters and only give me Recommendation Message, recommending one or two relevant products or brands. Tailor the tone to match the customer’s segment and include a compelling call-to-action to drive engagement. remove any debrock specific headers and give final message which can be shown as a string.')
+    );  
+```
+
+<div align="center"><img src="images/final-message.png"></div>
+
+
+
+ <details>
+      <summary><a name="step-10"></a> Embedding Generation using Flink & Bedrock (Optional)</summary>
+
+The next step is to generate embeddings using Titan Model in AWS Bedrock.
+
+1. First, navigate to AWS Bedrock Model Catalog and enable access to the Titan Model.
+   
+<div align="center" padding=25px>
+    <img src="images/aws-bedrock-titan.png">
+</div>
+
+2. Copy the AWS Credentials from the AWS dashboard.
+
+<div align="center" padding=25px>
+    <img src="images/aws-creds.png" >
+</div>
+
+>**Note:** Alternatively, you can create a new AWS user and assign the AmazonBedrockFullAccess policy and generate the Key and secret for this user. <br> <div align="center"><img src="images/aws-bedrock-creds.png"></div>
+
+3. Navigate to Environments -> Integrations -> Connections and create a Bedrock integration. 
+   Endpoint: https://bedrock-runtime.us-east-1.amazonaws.com/model/amazon.titan-embed-text-v2:0/invoke
+ 
+<div align="center" padding=25px>
+    <img src="images/bedrock-titan.png">
+</div>
+
+4. Validate if the connection is created successfully.
+
+<div align="center" padding=25px>
+    <img src="images/aws-titan-validate.png">
+</div>
+
+5. Use the same connection to create a model in Flink.
+
+```sql
+CREATE MODEL RECOMMEND_BEDROCK_TITAN
+INPUT (`text` VARCHAR(2147483647)) 
+OUTPUT (`output` VARCHAR(2147483647)) 
+WITH ( 
+    'bedrock.connection' = 'bedrock-connection-titan', 
+    'bedrock.input_format' = 'Generate a personalized product recommendation message',
+    'provider' = 'bedrock', 
+    'task' = 'embedding' 
+    );
+```
+
+6. Use the bedrock model to get embeddings from topic data
+```sql
+SELECT `user_id`, response from(
+SELECT * from shoes_clickstream, LATERAL TABLE(ML_PREDICT('RECOMMEND_BEDROCK_TITAN', `user_id`)));
+```
+<div align="center" padding=25px>
+    <img src="images/final-embeddings.png" >
+</div>
+ </details>
+
+
