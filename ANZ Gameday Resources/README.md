@@ -189,7 +189,7 @@ INPUT (`text` VARCHAR(2147483647))
 OUTPUT (`output` VARCHAR(2147483647)) 
 WITH ( 
     'bedrock.connection' = 'bedrock-connection', 
-    'bedrock.system_prompt' = 'Generate a personalized product recommendation message',
+    'bedrock.system_prompt' = 'Generate a personalized movie recommendation message',
     'provider' = 'bedrock', 
     'task' = 'text_generation' 
     );
@@ -239,20 +239,14 @@ INPUT (`text` VARCHAR(2147483647))
 OUTPUT (`output` VARCHAR(2147483647)) 
 WITH ( 
     'bedrock.connection' = 'bedrock-connection-titan', 
-    'bedrock.input_format' = 'Generate a personalized product recommendation message',
+    'bedrock.input_format' = 'Generate a personalized movie recommendation message',
     'provider' = 'bedrock', 
     'task' = 'embedding' 
     );
 ```
 
 6. Use the bedrock model to get embeddings from topic data
-```sql
-SELECT `user_id`, response from(
-SELECT * from shoes_clickstream, LATERAL TABLE(ML_PREDICT('RECOMMEND_BEDROCK_TITAN', `user_id`)));
-```
-<div align="center" padding=25px>
-    <img src="images/final-embeddings.png" >
-</div>
+
  </details>
 
 
