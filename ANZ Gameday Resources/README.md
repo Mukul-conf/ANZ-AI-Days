@@ -15,7 +15,7 @@ Please pick region: **US-east-1** for both AWS and Confluent Cloud
     Use ANZ email +ai3
     e.g. xxx+ai3@anz.com
 
-Promote code to bypass paywall (adding credit card details): **CONFLUENTDEV1**
+Promo code to bypass paywall (adding credit card details): **CONFLUENTDEV1**
 
 
 
