@@ -28,7 +28,7 @@ schema.registry.basic.auth.user.info=SR_API_KEY:SR_API_SECRET
 ## Usage
 
 ```bash
-python csv_kafka_streamer.py -f csv_data/ -c client.properties -s schemas.avsc --create-topic
+python3 csv_kafka_streamer.py -f csv_data/ -c client.properties -s schemas.avsc --create-topic
 ```
 
 ## Command Line Options
@@ -52,17 +52,17 @@ python csv_kafka_streamer.py -f csv_data/ -c client.properties -s schemas.avsc -
 
 **Basic run:**
 ```bash
-python csv_kafka_streamer.py -f csv_data/ -c client.properties -s schemas.avsc --create-topic
+python3 csv_kafka_streamer.py -f csv_data/ -c client.properties -s schemas.avsc --create-topic
 ```
 
 **With custom batch size:**
 ```bash
-python csv_kafka_streamer.py -f csv_data/ -c client.properties -s schemas.avsc --create-topic --batch-size 500
+python3 csv_kafka_streamer.py -f csv_data/ -c client.properties -s schemas.avsc --create-topic --batch-size 500
 ```
 
 **Debug mode:**
 ```bash
-python csv_kafka_streamer.py -f csv_data/ -c client.properties -s schemas.avsc --create-topic --log-level DEBUG
+python3 csv_kafka_streamer.py -f csv_data/ -c client.properties -s schemas.avsc --create-topic --log-level DEBUG
 ```
 
 ## Troubleshooting
