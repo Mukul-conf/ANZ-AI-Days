@@ -5,6 +5,21 @@
 # <div align="center">Quick Guide to setup Confluent cloud resources</div>
 <br>
 
+## Prerequisites
+
+Use this [Link](https://www.confluent.io/get-started/?utm_campaign=tm.gc_name.q2-hands-on-workshop_id.701Uz00000YiZ1nIAF&utm_source=splash&utm_medium=landingpage) to Signup for Confluent Cloud.
+
+Please pick region: **US-east-1** for both AWS and Confluent Cloud
+***Confluent Cloud:***
+
+    Use ANZ email +ai3
+    e.g. xxx+ai3@anz.com
+
+Promote code to bypass paywall (adding credit card details): **CONFLUENTDEV1**
+
+
+
+
 ## <a name="step-1"></a>Log into Confluent Cloud
 
 1. Log into [Confluent Cloud](https://confluent.cloud) and enter your email and password.
@@ -95,25 +110,9 @@ An environment contains clusters and its deployed components such as Apache Flin
 
 ***
 
-## <a name="step-4"></a>Creates Topic and Walk Through Cloud Dashboard
+## <a name="step-4"></a>Run the python producer to load data
 
-1. On the navigation menu, you will see **Cluster Overview**. 
-
-> **Note:** This section shows Cluster Metrics, such as Throughput and Storage. This page also shows the number of Topics, Partitions, Connectors, and ksqlDB Applications.
-
-2. Click on **Cluster Settings**. This is where you can find your *Cluster ID, Bootstrap Server, Cloud Details, Cluster Type,* and *Capacity Limits*.
-3. On the same navigation menu, select **Topics** and click **Create Topic**. 
-4. Enter **shoes_orders** as the topic name, **3** as the number of partitions, skip the data contract and then click **Create with defaults**.'
-
-<div align="center" padding=25px>
-    <img src="images/create-topic.png">
-</div>
-
-5. Repeat the previous step and create a second topic name **shoes_clickstream** and **3** as the number of partitions and skip the data contract.
-
-> **Note:** Topics have many configurable parameters. A complete list of those configurations for Confluent Cloud can be found [here](https://docs.confluent.io/cloud/current/using/broker-config.html). If you are interested in viewing the default configurations, you can view them in the Topic Summary on the right side. 
-
-7. After topic creation, the **Topics UI** allows you to monitor production and consumption throughput metrics and the configuration parameters for your topics. When you begin sending messages to Confluent Cloud, you will be able to view those messages and message schemas.
+1. Follow the steps [here](https://github.com/Mukul-conf/ANZ-AI-Days/tree/main/ANZ%20Gameday%20Resources/Producers#csv-to-kafka-streamer) to run the python producers which will create Topics for you.
 
 ***
 
