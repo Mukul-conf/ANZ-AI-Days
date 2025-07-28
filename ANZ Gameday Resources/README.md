@@ -417,24 +417,24 @@ You have now successfully integrated Tableflow with your AWS Glue Data Catalog u
 1. Go to Accounts and Access by Clicking on the right top Hamburger menue
 
 <div align="center" padding=25px>
-    <img src="imges/new_users1.png">
+    <img src="images/new_users1.png">
 </div>
 
 2. Click on **+Add Users**
 
 <div align="center" padding=25px>
-    <img src="imges/new_users2.png">
+    <img src="images/new_users2.png">
 </div>
 
 3. Add the email address of the person whom you want to add 
 
 <div align="center" padding=25px>
-    <img src="imges/new_users3.png">
+    <img src="images/new_users3.png">
 </div>
 
 4. On the next page Assign roles to the users on what they can access and click on confirm
 
 <div align="center" padding=25px>
-    <img src="imges/new_users4.png">
+    <img src="images/new_users4.png">
 </div>
 
